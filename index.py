@@ -6,7 +6,7 @@ from dash.dependencies import Input, Output
 from app import app
 
 # Connect to your app pages
-from pages import afds, spcgraphics
+from pages import afds, spcgraphics, home
 
 # Connect the navbar to the index
 from components import navbar
@@ -29,7 +29,7 @@ def display_page(pathname):
     if pathname == '/spcgraphics':
         return spcgraphics.layout
     else:
-        return "404 Page Error! Please choose a link"
+        return home.layout
 
 # Run the app on localhost:8050
 if __name__ == '__main__':
