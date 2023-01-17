@@ -6,7 +6,7 @@ import dash_bootstrap_components as dbc
 # Define the page layout
 layout = dbc.Container([
     dbc.Row([
-        html.Center(html.H1("Page 1")),
+        html.Center(html.H1("AFDs")),
         html.Br(),
         html.Hr(),
         dbc.Col([
