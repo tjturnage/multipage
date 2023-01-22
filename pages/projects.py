@@ -4,10 +4,15 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
 from .side_bar import sidebar
+import os
+
+basepath = os.path.abspath(".")
 
 dash.register_page(__name__, title="App1", order=1)
 
-df = pd.read_csv("assets/Berlin_crimes.csv")
+data = os.path.join(basepath,"assets/Berlin_crimes.csv")
+
+df = pd.read_csv(data)
 
 
 def layout():
