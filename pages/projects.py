@@ -6,11 +6,12 @@ import pandas as pd
 from .side_bar import sidebar
 import os
 
-basepath = os.path.abspath(".")
+assets_dir = "/home/tjturnage/multipage/assets"
+data = os.path.join(assets_dir,"Berlin_crimes.csv")
 
-dash.register_page(__name__, title="App1", order=1)
 
-data = os.path.join(basepath,"assets/Berlin_crimes.csv")
+dash.register_page(__name__, title="chloro plot", order=1)
+
 
 df = pd.read_csv(data)
 
