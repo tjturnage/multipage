@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Noto Sans Coptic
+- Font Author: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/coptic)
+- Font Source: http://fonts.gstatic.com/s/notosanscoptic/v17/iJWfBWmUZi_OHPqn4wq6kgqumOEd78u_VG0xR4Y.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))

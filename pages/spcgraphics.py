@@ -3,6 +3,11 @@ import dash
 from dash import html
 import dash_bootstrap_components as dbc
 
+dash.register_page(__name__,
+    path='/spcgraphics',
+    title='SPC mesoanalysis graphics',
+    name='SPC mesoanalysis graphics')
+
 ### Add the page components here 
 
 # Define the final page layout
