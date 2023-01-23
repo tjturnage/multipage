@@ -3,6 +3,8 @@ import dash
 import dash_bootstrap_components as dbc
 app = dash.Dash(__name__, external_stylesheets= [dbc.themes.DARKLY],use_pages=True)
 
+assets_dir = "/home/tjturnage/multipage/assets"
+
 top_content = [
             dbc.CardBody([html.H1("turnageweather", className="card-title",style={'font-weight': 'bold', 'font-style': 'italic'}),
                 html.Div([

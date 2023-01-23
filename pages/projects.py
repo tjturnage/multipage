@@ -4,10 +4,15 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
 from .side_bar import sidebar
-import os
+from pathlib import Path
 
-assets_dir = "/home/tjturnage/multipage/assets"
-data = os.path.join(assets_dir,"Berlin_crimes.csv")
+p = Path('/home/tjturnage')
+q = p / 'multipage' / 'Berlin_crimes.csv'
+
+if q.exists():
+    data = q
+else:
+    data = "assets/Berlin_crimes.csv"
 
 
 dash.register_page(__name__, title="chloro plot", order=1)
