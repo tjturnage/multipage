@@ -33,7 +33,7 @@ layout = html.Div(
                             """
             * Meteorologist 
             * Bass player
-            * Python diletante
+            * Python dilettante
             """
                         )
                     ],
@@ -47,10 +47,10 @@ layout = html.Div(
         html.Hr(),
         dcc.Markdown(
             "Science and Operations Officer \n"
-            "Outgoing sales professional with track record of driving increased sale, improving \n"
-            "buying experience and elevating company profile with target market.",
+            "Bringing new science and technology into operational meteorology ...",
             style={"textAlign": "center", "white-space": "pre"},
         ),
+        html.Hr(),
         dcc.Markdown("### Skills", style={"textAlign": "center"}),
         html.Hr(),
         dbc.Row(
@@ -70,7 +70,7 @@ layout = html.Div(
                     [
                         dcc.Markdown(
                             """
-            * 
+            * Image processing (GIMP)
             """
                         )
                     ],
@@ -79,12 +79,13 @@ layout = html.Div(
             ],
             justify="center",
         ),
+        html.Hr(),
         dcc.Markdown("### Work History", style={"textAlign": "center"}),
         html.Hr(),
         dbc.Row(
             [
                 dbc.Col(
-                    [dcc.Markdown("01/2006 to current", style={"textAlign": "center"})],
+                    [dcc.Markdown("Jan 2006 - present", style={"textAlign": "center"})],
                     width=2,
                 ),
                 dbc.Col(
@@ -111,7 +112,7 @@ layout = html.Div(
         dbc.Row(
             [
                 dbc.Col(
-                    [dcc.Markdown("11/1998 to 01/2006", style={"textAlign": "center"})],
+                    [dcc.Markdown("Nov 1998 - Jan 2006", style={"textAlign": "center"})],
                     width=2,
                 ),
                 dbc.Col(
@@ -136,6 +137,7 @@ layout = html.Div(
             ],
             justify="center",
         ),
+        html.Hr(),
         dcc.Markdown("### Education", style={"textAlign": "center"}),
         html.Hr(),
         dbc.Row(
@@ -146,6 +148,23 @@ layout = html.Div(
                         dcc.Markdown(
                             "Bachelor of Science: Meteorology\n"
                             "Iowa State University - Ames, IA",
+                            style={"white-space": "pre"},
+                            className="ms-3",
+                        ),
+                    ],
+                    width=5,
+                ),
+            ],
+            justify="center",
+        ),
+                dbc.Row(
+            [
+                dbc.Col([dcc.Markdown("2007", style={"textAlign": "center"})], width=2),
+                dbc.Col(
+                    [
+                        dcc.Markdown(
+                            "Master of Science: Meteorology\n"
+                            "Florida State University - Tallahassee, FL",
                             style={"white-space": "pre"},
                             className="ms-3",
                         ),

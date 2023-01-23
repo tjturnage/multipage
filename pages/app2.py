@@ -5,7 +5,10 @@ from .side_bar import sidebar
 import pandas as pd
 import plotly.express as px
 
-dash.register_page(__name__)
+dash.register_page(__name__,
+    title='bees',
+    name='bees', order=1)
+
 
 df = pd.read_csv(
     "https://raw.githubusercontent.com/Coding-with-Adam/Dash-by-Plotly/master/Other/Dash_Introduction/intro_bees.csv"
