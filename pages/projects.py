@@ -7,7 +7,7 @@ from .side_bar import sidebar
 from pathlib import Path
 
 p = Path('/home/tjturnage')
-q = p / 'multipage' / 'Berlin_crimes.csv'
+q = p / 'multipage' / 'assets' / 'Berlin_crimes.csv'
 
 if q.exists():
     data = q
