@@ -5,13 +5,6 @@ app = dash.Dash(__name__, external_stylesheets= [dbc.themes.DARKLY],use_pages=Tr
 
 assets_dir = "/home/tjturnage/multipage/assets"
 
-top_content = [
-            dbc.CardBody([html.H1("turnageweather", className="card-title",style={'font-weight': 'bold', 'font-style': 'italic'}),
-                html.Div([
-                dbc.CardLink("GitHub", href="https://github.com/tjturnage")]),
-                html.Div([
-                dbc.CardLink("@turnageweather", href="https://twitter.com/turnageweather")]),])
-]
 header = dbc.Navbar(
     dbc.Container(
         [
