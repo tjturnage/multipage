@@ -2,11 +2,15 @@ import dash
 from dash import html, dcc, Input, Output, State, callback
 import dash_bootstrap_components as dbc
 import plotly.express as px
-import pandas as pd
+import plotly.graph_objs as go
 from .side_bar import sidebar
+import pandas as pd
 from pathlib import Path
 
-p = Path('/home/tjturnage')
+#p = Path('/home/tjturnage')
+p = Path('C:/data/scripts')
+
+
 q = p / 'multipage' / 'assets' / 'Berlin_crimes.csv'
 
 if q.exists():
@@ -14,11 +18,14 @@ if q.exists():
 else:
     data = "assets/Berlin_crimes.csv"
 
-
-dash.register_page(__name__, title="chloro plot", order=1)
-
-
 df = pd.read_csv(data)
+
+#print(df)
+
+dash.register_page(__name__, title="Grafitti", order=1)
+
+
+
 
 
 def layout():

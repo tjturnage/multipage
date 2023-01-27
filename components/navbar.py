@@ -10,7 +10,6 @@ def Navbar():
         dbc.NavbarSimple(
             children=[
                 dbc.NavItem(dbc.NavLink("AFDs", href="/afds")),
-                #dbc.NavItem(dbc.NavLink("SPC Graphics", href="/spcgraphics")),
             ] ,
             brand="turnageweather",
             brand_href="/home",
