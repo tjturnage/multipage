@@ -7,8 +7,8 @@ from .side_bar import sidebar
 import pandas as pd
 from pathlib import Path
 
-#p = Path('/home/tjturnage')
-p = Path('C:/data/scripts')
+p = Path('/home/tjturnage')
+#p = Path('C:/data/scripts')
 
 
 q = p / 'multipage' / 'assets' / 'Berlin_crimes.csv'
