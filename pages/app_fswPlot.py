@@ -1,24 +1,23 @@
+"""
+This runs the fsw plot
+"""
+from pathlib import Path
 import dash
-from dash import html, dcc, Input, Output, State, callback
+from dash import html, dcc, Input, Output, callback
 import dash_bootstrap_components as dbc
 import plotly.express as px
-import plotly.graph_objs as go
-from .side_bar import sidebar
 import pandas as pd
-from pathlib import Path
 import numpy as np
-#import os
-
-#os.chdir('C:/data/scripts/Forecast_Search_Wizard/')
-
+from . import ids
+from .side_bar import sidebar
 
 p = Path('/home/tjturnage')
 q = p / 'multipage' / 'assets' / 'fsw_output.txt'
 
 if q.exists():
-    data = q
+    DATA = q
 else:
-    data = "assets/fsw_output.txt"
+    DATA = "assets/fsw_output.txt"
 
 
 dash.register_page(__name__,
@@ -27,7 +26,7 @@ name='FSW_plot',order=2)
 
 dts = []
 product = []
-with open(data,'r') as src:
+with open(DATA,'r', encoding='utf_8') as src:
     for line in src.readlines():
         if line[0] in ('0','1'):
             values = line.split('\t')
@@ -43,9 +42,16 @@ unique_prods = list(df_temp['product'].unique())
 print(unique_prods)
 for p in unique_prods:
     df_temp[p] = np.where(df_temp['product'] == p,1,0).cumsum()
+df_temp['count'] = 1
+df_temp['month'] = df_temp.index.month
+df_temp['Year'] = df_temp.index.year
+#print(df_temp)
 
 
 def layout():
+    """
+    This defines the dashboard
+    """
     return html.Div(
         [
             dbc.Row(
@@ -58,7 +64,8 @@ def layout():
                                 style={"textAlign": "center"},
                             ),
                             dcc.Dropdown(
-                                id="product_chosen",
+                                id=ids.FSW_PRODUCT_CHOSEN
+,
                                 options=df_temp["product"].unique(),
                                 value=["AFDGRR", "AFDAPX"],
                                 multi=True,
@@ -80,20 +87,29 @@ def layout():
     )
 
 
-@callback(Output("line_chart_new", "figure"), Input("product_chosen", "value"),suppress_callback_exceptions=True)
+@callback(Output("line_chart_new", "figure"), Input(ids.FSW_PRODUCT_CHOSEN, "value"),suppress_callback_exceptions=True)
 def update_graph_card(products):
+    """
+    doc string test
+    """
     if len(products) == 0:
         return dash.no_update
-    else:
-        pees = []
-        for p in products:
-            pees.append(list(df_temp[p]))
+    df_filtered = df_temp[df_temp["product"].isin(products)]
 
-        fig = px.line(
-            df_temp,
-            x=df_temp.index,
-            y=pees,
-            labels={"Mentions": "Mentions (sum)"},
-        ).update_traces(mode="lines+markers")
-        return fig
+    df_filtered = (
+        df_filtered.groupby(["month"])[["count"]]
+        .sum()
+        .reset_index()
+        )
+
+
+
+    fig = px.line(
+        df_filtered,
+        x=df_filtered.index,
+        y=products,
+        color="product",
+        labels={"Graffiti": "Graffiti incidents (avg)"},
+    ).update_traces(mode="lines+markers")
+    return fig
 

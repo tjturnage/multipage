@@ -1,10 +1,16 @@
+"""
+This defines the navbar at the top
+"""
 # Import necessary libraries
 from dash import html
 import dash_bootstrap_components as dbc
 
 
 # Define the navbar structure
-def Navbar():
+def navbar():
+    """
+    Top navbar components are listed here
+    """
 
     layout = html.Div([
         dbc.NavbarSimple(
@@ -15,7 +21,7 @@ def Navbar():
             brand_href="/home",
             color="dark",
             dark=True,
-        ), 
+        ),
     ])
 
     return layout

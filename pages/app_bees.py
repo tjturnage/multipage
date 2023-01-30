@@ -1,9 +1,13 @@
+"""
+The bees
+"""
 import dash
 from dash import html, dcc, callback, Output, Input
 import dash_bootstrap_components as dbc
-from .side_bar import sidebar
 import pandas as pd
 import plotly.express as px
+from .side_bar import sidebar
+
 
 dash.register_page(__name__,
     title='bees',
@@ -21,6 +25,9 @@ df.reset_index(inplace=True)
 
 # ------------------------------------------------------------------------------
 def layout():
+    """
+    dashboard interface
+    """
     return html.Div(
         [
             dbc.Row(
@@ -75,6 +82,9 @@ def layout():
     Input(component_id="slct_year", component_property="value"),
 )
 def update_graph(option_slctd):
+    """
+    updates chloropleth map
+    """
 
     dff = df.copy()
     dff = dff[dff["Year"] == option_slctd]

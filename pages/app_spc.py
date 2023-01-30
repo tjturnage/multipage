@@ -1,3 +1,6 @@
+"""
+probably getting rid of this page
+"""
 import dash
 from dash import html
 import dash_bootstrap_components as dbc
@@ -7,6 +10,9 @@ dash.register_page(__name__,
     title='get SPC graphics',
     name='spc graphics', order=2)
 def layout():
+    """
+    default layout
+    """
     return html.Div([
         dbc.Row(
             [
