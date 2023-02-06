@@ -12,12 +12,12 @@ from . import ids
 from .side_bar import sidebar
 
 p = Path('/home/tjturnage')
-q = p / 'multipage' / 'assets' / 'fsw_output.txt'
+q = p / 'multipage' / 'data' / 'fsw_output.txt'
 
 if q.exists():
     DATA = q
 else:
-    DATA = "assets/fsw_output.txt"
+    DATA = "data/fsw_output.txt"
 
 
 dash.register_page(__name__,
@@ -41,7 +41,8 @@ df_temp.set_index('dts', inplace=True)
 unique_prods = list(df_temp['product'].unique())
 print(unique_prods)
 for p in unique_prods:
-    df_temp[p] = np.where(df_temp['product'] == p,1,0).cumsum()
+    #df_temp[p] = np.where(df_temp['product'] == p,1,0).cumsum()
+    df_temp[p] = np.where(df_temp['product'] == p,1,0).sum()
 df_temp['count'] = 1
 df_temp['month'] = df_temp.index.month
 df_temp['Year'] = df_temp.index.year
@@ -95,12 +96,6 @@ def update_graph_card(products):
     if len(products) == 0:
         return dash.no_update
     df_filtered = df_temp[df_temp["product"].isin(products)]
-
-    df_filtered = (
-        df_filtered.groupby(["month"])[["count"]]
-        .sum()
-        .reset_index()
-        )
 
 
 

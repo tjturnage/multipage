@@ -20,6 +20,7 @@ def sidebar():
                 dbc.NavLink(
                     [
                         html.Div("graffiti", className="ms-2"),
+                        html.Div("polygons", className="ms-2"),
                     ],
                     href=page["path"],
                     active="exact",

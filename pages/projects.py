@@ -17,12 +17,12 @@ p = Path('/home/tjturnage')
 #p = Path('C:/data/scripts')
 
 
-q = p / 'multipage' / 'assets' / 'Berlin_crimes.csv'
+q = p / 'multipage' / 'data' / 'Berlin_crimes.csv'
 
 if q.exists():
     DATA = q
 else:
-    DATA = "assets/Berlin_crimes.csv"
+    DATA = "data/Berlin_crimes.csv"
 
 df = pd.read_csv(DATA)
 
