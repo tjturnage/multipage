@@ -1,730 +1,206 @@
 
+.UPDATE...
+Issued at 1026 PM EDT Thu May 25 2023
 
-  --------------------------  Laurens  --------------------------  
-
-
-.DISCUSSION...(Today through next Saturday)
-Issued at 300 AM EST Sun Jan 22 2023
-
-- Light snow today -
-
-An upper level system aided by some mid level frontogenetical
-forcing and a broader area of weaker lift will combine to bring
-light snow today. Very light snow accumulations of mostly under an
-inch are fcst for most of our area today. The exception to this
-is over our far se fcst area where mid level fgen is briefly
-favorable this morning.
-
-Therefore I would not be surprised to see an isolated higher
-amount near two inches near KJXN or wherever mesoscale mid level
-fgen banding briefly sets up in that vicinity. This system will
-have minimal impacts given the light snow amounts and sfc temps
-which will moderate through the lower to middle 30s today.
-
-- Light snow north Monday night -
-
-A brief period of lake effect/lake enhanced light snow is expected
-over our nw fcst area Monday night as an upper level shortwave
-traverses across the northern Great Lakes region. Light snow
-accumulations on the order of an inch or two are expected near to
-northwest of Big Rapids.
-
-- Potential for snow Wednesday -
-
-Low pressure over the Arklatex region will move ne to near KBUF by
-late Wednesday night as suggested by latest ecmwf ensembles. This
-system will have ample gulf moisture to work with and has the
-potential to bring a swath of significant snow se of our fcst area
-Wednesday through Wednesday night.
-
-Some lighter snow accumulations on the order of 1 to 4 inches
-seem possible for our area with relatively highest amounts over
-our southern fcst area. Will need to monitor this system closely
-as a track further nw would bring potential for more significant
-snow into our area. This is not the most likely outcome for our
-area but still within the range of possibilities.
+Much better potential exists tonight than last night for
+widespread min temps in the mid/upr 30s. Those were localized
+last night and lower 40s min temps were more the rule. There is
+less cloudiness tonight and the winds are lighter, with a better
+chance of the wind going near calm in several areas. The clouds
+currently dropping in from the north are mainly thin and appear to
+be aimed more into Upr MI and WI than into Lwr MI. Frost/Freeze
+headlines continue.
 
 
-  --------------------------  Meade  --------------------------  
+  --------------------------  Ostuno  --------------------------  
 
+
+.DISCUSSION...(Today through Wednesday)
+Issued at 257 AM EDT Thu May 25 2023
+
+Very quiet weather pattern continues into next week as omega block
+transitions to a rex block then quasi zonal flow regime with
+little moisture transport available.
+
+For today and tonight the surface high builds in and another
+headline for frost or freezing temperatures may be needed for
+roughly the northern half of the forecast area.
+
+Dry soundings for the next few days plus dry ground will mean
+large diurnal temperature ranges, on the order of 40 degrees F.
+Moderation of airmass with warmer temperatures for the weekend
+into next week. Still no measurable rain seen through the end of
+the month.
 
 .UPDATE...
-Issued at 925 PM EST Sat Jan 21 2023
+Issued at 921 PM EDT Wed May 24 2023
 
-Echoes aloft are advancing from the southwest on radar, but it
-will be quite a while until any light snow begins reaching the
-ground here in southwest MI.
+Our frost advisory may not work out too well since the winds stay
+up around 10-15 mph (with occasional higher gusts) for much of
+the night and there is considerable high level cloudiness
+streaming in from the northwest. Another big problem is the sfc
+dew pt depressions are significant and even at 6 AM Thursday
+morning still range from near 6F at MOP to as much as 16F at MKG
+in HRRR guidance.
 
-The 00Z DTX sounding came in very dry with a dew pt depression of
-12C at 700mb and even drier just below that. (The 765mb level
-showed a dew pt depression of 30C!) You have to go all the back
-into ern Iowa to find snow reaching the ground at this hour.
-
-So while radar echoes will continue to increase overnight
-(especially on regional/national mosaics of multiple radars),
-most of that will be aloft initially and it will probably take
-until after 4 or 5 am to start seeing some snow at the sfc.
-
-Total snow of an inch or less will probably be more the norm on
-Sunday, with any 2" amounts fairly isolated and likely limited to
-the far southeast CWFA around JXN. A few of the HiRes models have
-been suggesting that the precip could have more of a banded
-nature rather than a widespread/continuous character. This
-possibility, combined with the dry air to overcome at the onset
-and mild sfc temps of 32-24 on Sunday, suggests that some places
-could see only trace accumulations.
+The best chance for any frost late tonight looks to be over
+eastern sections (LAN/AMN/MOP) where lowest wind speeds and dew pt
+depressions should occur after 06Z, with lesser chance over western
+sections (GRR/MKG/LDM). It`s not really worth it at this point
+to remove any counties from the frost headline, especially since
+certain micro-climates could easily see the sfc winds die off and
+temps plummet late at night. The freeze warning area looks fine,
+especially if clouds end up being predominately thin.
 
 
-  --------------------------  Duke  --------------------------  
+  --------------------------  Ostuno  --------------------------  
 
 
-.DISCUSSION...(This evening through next Saturday)
-Issued at 343 PM EST Sat Jan 21 2023
+.DISCUSSION...
+Issued at 330 AM EDT Wed May 24 2023
 
--- Chance for light snow late tonight and Sunday --
+Cold front moves through today with little moisture to work with.
+Cut POPs that were limited to begin with across the northeast
+forecast area. Strong cold advection this afternoon and evening on
+northeast winds will result in overnight lows dropping to near or
+below freezing across the northern interior and in the mid to
+upper 30s across the rest of the forecast area.
 
-The chance for light snow remains for late tonight and Sunday as
-so does some uncertainty in terms of amounts and extent. It is
-still a light snow event, but there are some models that are quite
-light (trace to a half inch) and others that show a fairly
-widespread 1-2 inches. The uncertainty with this event is
-associated with the fact that there is a lack of a surface low and
-the 850mb presentation is weak as well. Its a broad trough aloft
-with weak surface features which is why we are seeing spread in
-the models. We feel the best chance for accumulating snows will be
-across our south and southeast CWA from AZO to LAN down to BTL
-and JXN. These areas are where a more compact vorticity max moves
-through and is closer to a weak 850mb low. Amounts will not be
-significant by Michigan winter standards, but an inch or two will
-be possible in these areas with inch or less amounts elsewhere.
+We have issued a Freeze Warning for Lake, Osceola and Clare
+Counties and a Frost Advisory for all but the southern tier.
+Surface high remains across the Great Lakes region through the
+rest of the week with moderating temperatures but another cold
+night is expected with frost/freeze potential for Thursday night
+as well.
 
--- Some very light snow Monday night into Tuesday --
-
-Parameters come together for a brief period of lake effect snow
-Monday night into Tuesday with a shortwave zipping through the
-area in the mid levels. The northwest CWA up towards LDM is the
-favored area for an inch or two of snow as delta T`s over the lake
-briefly increase to around 13C.
-
--- Mid week system system bears watching but trending south --
-
-Plenty of time to watch this system as it is still 4 days out.
-Trying pinpoint the area of concern/swath of snow at that range in
-the forecast is problematic given how this system evolves. Two
-upper shortwaves of concern with this system are 1) currently
-approaching the Pacific Northwest coast and 2) over the middle of
-the Pacific south of Alaska. The interaction of these two waves
-will determine whether we see impacts or not. The first wave dives
-south into the Southern Plains and recurves north. The second
-wave plows east across Canada and the Northern Plains and tries to
-phase with the first. Yesterday there was a bit more phasing hence
-a swath of snow in our area due to a closer and slower low track.
-Today`s models and the latest trend is from less phasing and a
-more progressive pattern leading to a low moving from TN to OH to
-NY which is not the most favorable track for us. Bottom line we
-will be watching this time frame closely as there may be a new
-trend that emerges given the range in the forecast. We should know
-more as we move into the Monday time frame.
-
-Quite a bit of model disparity shows up toward the end of the work
-week. Case in point, 7 days out from now, midday next Saturday the
-GFS has -22C air over Western Lower Michigan whereas the ECMWF has
-+2C air. Suffice it to say low confidence in the pattern and the
-forecast out towards Friday and Saturday.
-
-
-  --------------------------  Laurens  --------------------------  
-
-
-.DISCUSSION...(Today through next Friday)
-Issued at 300 AM EST Sat Jan 21 2023
-
-- Light snow very late tonight into Sunday -
-
-A sfc/upr trof will combine to bring light snow very late tonight
-through early to mid afternoon Sunday. Polling of a blend of
-short range model fcst soundings and bufkit x-sections shows deep
-moisture through the dgz tomorrow but weak lift.
-
-Given lack of stronger omegas/isentropic lift we expect the snow
-to be light with only around an inch or less of accumulation
-across our area. Impacts will be minimal given sfc temps near or
-just below the freezing mark.
-
-- Potential for stronger system Wednesday -
-
-Tranquil wx is fcst Mon/Tue. A strengthening low pressure system
-over the Arklatex region Tuesday night will move ne into the OH
-valley region by late Wednesday. An overall medium range guidance
-consensus continues to suggest potential for accumulating snowfall
-across our area Wednesday and Wednesday night.
-
-It is still far too early to get into too many fcst specifics
-with this system given uncertainty on exact strength and track of
-the system. The 00Z ecwmf ensemble mean for low location takes it
-from far eastern KY to near PIT by 00Z Thur.
-
-A track this far se would keep heaviest synoptic snow mostly se
-of our area. We will continue to monitor this system closely as it
-will have ample gulf moisture with it and potential to bring
-significant snow accumulations. Colder temps are forecast behind
-that system for late week into next weekend.
-
-
-  --------------------------  Meade  --------------------------  
-
+Omega block develops then transitions to a rex block, keeping dry
+weather in place through early next week. It may be early June
+before the pattern yields a chance of measurable rain.
 
 .UPDATE...
-Issued at 749 PM EST Fri Jan 20 2023
-
-We`ve been seeing some reports in the southwest corner of Lwr MI
-that light freezing rain/drizzle is mixing in with the lake effect
-snow showers.
-
-Several ASOS sites have had unknown precip remarks in the
-observations and a few have recently carried light freezing rain
-(SBN, BEH, BTL). This was a concern of the previous shift and
-makes sense given the shallow moisture profiles shown in the
-latest HRRR soundings and the DGZ being just barely in the top of
-the cloud layer.
-
-Sfc temperatures are rather marginal (right around freezing) and
-road temps are likely a few degrees warmer, so probably not much
-in the way of any travel impacts, but did update the forecast to
-reflect the mix. Still expecting the precipitation to wind down
-later this evening and especially after midnight.
-
-
-  --------------------------  Duke  --------------------------  
-
-
-.DISCUSSION...(This evening through next Friday)
-Issued at 345 PM EST Fri Jan 20 2023
-
--- Lake effect snow to wind down this evening --
-
-Light lake effect snow will gradually wind down through the
-evening hours. Moderating temperatures at 925mb and 850mb should
-end the necessary instability for lake effect snow showers as we
-work through the evening. Moisture is already trending shallow and
-we should see moisture depth fall below 5,000ft this evening.
-There will be some occasional lift into the moist layer so not out
-of the realm of possibilities to see some patchy drizzle or
-freezing drizzle with temperatures near the freezing mark. At this
-point given the lower chance and lower confidence we have left it
-out of the forecast.
-
--- Light accumulating snow Saturday night into Sunday --
-
-A trough moving through both at the surface and aloft with bring
-the chance for light accumulating snow Saturday night into Sunday.
-At this time both operational models and ensemble members seem to
-be converging on a 1 to 2 inch snowfall. Given the lighter amounts
-and the fact that it is falling on a weekend we are not expecting
-significant impacts. Given the fact though that we have not had
-widespread accumulating snow in awhile, we will be hitting the
-change up in conditions in text products as well as social media
-posts. Temperatures will be near or just below 32F so mitigation
-factors used by road commissions will be very effective. It is not
-a bad presentation in BUFKIT overviews at all, with deep moisture
-up through 15,000 to 20,000 feet. Deep lift is noted (albeit on
-the weaker side) through the depth of the column. The most
-impressive feature with the system is it has a healthy looking
-500mb trough that is forming/deepening overhead. The lower
-tropospheric presentation is less impressive with a lack of a
-significant low at the surface, no real defined 850mb low and weak
-isentropic lift. A 1 to 2 inch 12 to 18 hour snow is what we are
-looking at. Again impacts should be low given its the weekend,
-marginal surface temperatures and it being a longer duration.
-
--- Bigger threat for accumulating snow mid next week --
-
-The most impactful system in the 7 day forecast is clearly the
-system for mid next week. A Southern Plains low is forecast to
-move northeast towards the Great Lakes on Tuesday and move through
-the area on Wednesday. In the operational models, the ECMWF, GFS
-and Canadian there is spread in where the low is located Wednesday
-evening. Essentially anywhere in the Southern Great Lakes region
-is fair game at this point. The ECMWF ensemble mean low position
-is near Lake Erie Wednesday evening with many of the individual
-members over Lake Erie or the state of Ohio. This is a favorable
-position for our southern CWA (I-96 corridor to the south) to see
-accumulating snow. It does appear at this time to be cold enough
-in the ECWMF and GFS for snow looking at both surface temperatures
-and 850mb temperatures. So, we will be watching this time frame
-closely to monitor trends in the models on location of the swath
-of heavier snow. At this time the swath of snow could be on the
-order of 6+ inches given a moisture tap of gulf origins. That
-said, gulf moisture does not completely surge into the state.
-
-
-  --------------------------  Thielke  --------------------------  
-
-
-.DISCUSSION...(Today through next Thursday)
-Issued at 318 AM EST Fri Jan 20 2023
-
-- Lingering Precip Into Afternoon
-
-While we may see a brief lull in precipitation coverage early
-this morning, another shortwave will drop south near 12z
-resulting in an uptick through this afternoon. Cold advection with
-the shortwave will support a transition to snow with lake
-enhancement expected to keep the precipitation orientated along
-and west of US-131. Generally around a dusting of snow is
-expected, and with mild temps, impacts are expected to be limited.
-Dry weather will settle back in late this afternoon and evening.
-
-- Widespread Light Snow Sunday
-
-Dry weather lasts through Saturday as high pressure moves into the
-region. Chances for widespread light snow increase early Sunday
-morning as a system passes by to our southeast. The bulk of the
-moisture with this system will stay focused southeast of the
-state, but a band of mid-level deformation over the Great Lakes
-will bring widespread light snow for our area with minor
-accumulations of an inch or two possible. Snow showers should
-diminish in coverage by Sunday evening as the low to our southeast
-moves further away.
-
-- Snow Chances Again Wednesday
-
-High pressure moves back into the region leading to dry weather
-Monday and Tuesday. By Wednesday the potential increases for a
-stronger storm system to move through the region. As usual for
-forecast models this far out, there remains uncertainty on the
-overall storm evolution, including the strength and main track of
-the storm. For instance, the GFS continues to portray a stronger
-and wetter system that tracks through southeast lower MI, while
-the Euro is slightly weaker and drier with a track slightly more
-to the southeast. Looking at ensemble output, there is a decent
-amount of spread on snowfall amounts for both the Euro and the GFS
-ensembles with amounts ranging from trace up to 8 inches.
-Acknowledging those sizable discrepancies, we`ll need some time
-to work out the details of this system.
-
-
-  --------------------------  Meade  --------------------------  
-
-
-.UPDATE...
-Issued at 956 PM EST Thu Jan 19 2023
-
-Highest coverage of rain this evening has been over southern
-sections, within elongated H5 shear zone containing several
-vorticty maxima. Coverage in this zone is expected to gradually
-diminish overnight as the main upper low over the ern GrtLks Rgn
-continues moving slowly east, followed by a brief lull in PoPs
-before another shortwave drops in from the northwest toward 12Z
-Friday. This wave is accompanied by cold advection and perhaps
-some lake enhancement, so expect highest pops by daybreak to be
-oriented near/west of Highway 131. Rain should begin mixing with
-snow overnight and changing to mostly snow toward or shortly after
-daybreak as H8 air near -10C arrives. Only a dusting of
-accumulation (mostly on grass) and minimal impacts expected given
-marginal/mild sfc temps in the mid 30s.
-
-
-  --------------------------  04  --------------------------  
-
-
-.DISCUSSION...(This evening through next Thursday)
-Issued at 306 PM EST Thu Jan 19 2023
-
-...Turning colder...
-
-Water vapor imagery shows a well defined upper low over northwest
-IN. We are on the north side of the low track and will stay stuck in
-the stratus or a while. Currently an upper dry slot is moving over
-the cwa and has temporarily ended precipitation over the cwa. The
-reprieve will be short lived. A potent trailing upper short wave
-will rotate in this evening and spread light rain through the cwa
-which will turn to some light snow by late evening. Highest chance
-of seeing precipitation will be over the southern 2/3 of the cwa.
-One complicating factor is that the DGZ becomes unsaturated after
-06z. However, synoptic pcpn will be waning after this time and so if
-freezing drizzle occurs, impacts will be limited.
-
-Some light lake effect snow is possible west of US-131 overnight
-with accumulations less than an inch; over-lake instability is
-marginal with h8 temps near -10c.
-
-...Chance of snow Sunday and again Wednesday...
-
-Both the ECMWF and GFS show phasing between northern and southern
-stream short waves Saturday over the Plains. As this elongated
-trough moves across the Great Lakes, we`ll see light snow develop
-very late Saturday night and continue Sunday. An inch or two
-accumulation is possible. Moisture transport northward ahead of the
-trough is not impressive and gets stuck along the Ohio Valley. Thus
-the limited accums.
-
-A stronger storm may be in the offing for the middle of next week.
-The GFS is much stronger with a low moving out of the Gulf then the
-ECMWF but both bring the system northeast toward Lower MI. The
-supporting short wave on the GFS is stronger than the ECMWF and
-phases better with the  northern stream trough. Given the colder air
-in place, the precipitation would likely be snow. It`s still a long
-way off, though, to pin down details.
-
-
-  --------------------------  04  --------------------------  
-
-
-.UPDATE...
-Issued at 1047 AM EST Thu Jan 19 2023
-
-We are going to leave the headline as is; it`ll expire at noon. A
-quick call to law enforcement over the northeast cwa indicates
-several accidents attributable to slick conditions. Additionally,
-web cam
-s show snow covered surfaces within the advisory area.
-
-Warmer temperatures are slowly working their way north and will
-mitigate icing as the afternoon wears on.
-
-Radar continues to show a fuzzy appearance over the I-96 area,
-indicative of drizzle that we see outside. Bufkit RH progs show
-lift in the cloud layer is about to end, which should correspond
-to a decrease in radar echos.
-
-
-  --------------------------  Thielke  --------------------------  
-
-
-.DISCUSSION...(Today through next Wednesday)
-Issued at 331 AM EST Thu Jan 19 2023
-
-- Ongoing Mixed Precipitation Through This Morning
-
-Current surface obs (as of 2:30AM) show temperatures still above
-freezing for most of the area, but areas up near Clare, Osceola,
-Mecosta and Isabella Counties are beginning to drop a little closer
-to freezing. The primary p-type is still expected to be rain south
-of the advisory area, but some sleet may mix in within the next few
-hours. A mixture of p-types is still expected across the advisory
-area with sleet expected to be more prevalent than freezing rain.
-Areas north of US-10 may be cold enough for some light snow
-accumulations.
-
-Easterly winds are also gusty early this morning, with lakeshore
-sites such as Holland and Muskegon reporting gusts to 35 to 40 mph.
-Winds will stay breezy and then will weaken shortly after sunrise.
-The lakeshore is expected to face the brunt of the strongest gusts,
-but areas inland may see a few hours of easterly gusts to 30 to 35
-mph.
-
-Precipitation should diminish in coverage near mid-day as a dry slot
-noses into the CWA. Drizzle may persist, however, while
-temperatures warm into the 40s south of I-96 and into the mid 30s
-into the advisory area. Thus, any snow or ice accumulation from
-this morning will likely melt into this afternoon.
-
-There will be another uptick in rain this evening from I-96
-southwards with a low chance for thunder staying to our southeast
-where better convective parameters exist.
-
-- Lingering Snow into Friday Morning
-
-The main area of low pressure will move eastwards this afternoon and
-evening with colder air wrapping into the state from the northwest.
-850mb temps will fall into the -5 to -10C range while a mid-level
-vort max slides down the backside of the departing closed low. Some
-bands of lake effect snow may develop tonight into Friday.
-Accumulations should stay light (less than 1 inch) but some
-impacts to the Friday morning commute will be possible.
-
-- Some Accumulating Snow Possible Saturday Night into Sunday
-
-Any lingering lake effect snow will dwindle Friday evening, then
-conditions turn dry for much of Saturday as high pressure builds in
-from the south. Additional rounds of precipitation continue to look
-possible late Saturday into Sunday as a system tracks through OH
-and IN. While the bulk of the heavier precip will be well to our
-southeast, this system will still have the potential to generate
-some impacts for southwest MI with a couple of inches of snow
-possible.
-
-
-  --------------------------  Meade  --------------------------  
-
-
-.UPDATE...
-Issued at 1008 PM EST Wed Jan 18 2023
-
-There are no plans to modify/expand the Winter Weather Advisory
-at this time.
-
-Current sfc temperatures are in the mid to upper 30s near and
-south of I-96, whereas many locations to the north are 33 to 35.
-Dew points are still in the mid to upper 20s across the majority
-of the area with the exception of the I-94 corridor which is
-slightly above 32. The 00Z DTX showed considerable dry air above
-850 mb.
-
-There have been numerous MPING reports of sleet mixing in with
-the rain across Chicago-land this evening. Based on the 00Z DTX
-sounding as well as HRRR fcst soundings, suspect we`ll see a
-similar situation here. Soundings show a warm nose above 0C
-between roughly 4-6K feet, but a sub-freezing layer between about
-1-3K.
-
-While sfc temps may lower a tad once precip commences due to wet
-bulb effects, the primary p-type is expected to be rain south of
-the advisory area. (although some sleet mixed in for awhile at
-the onset). A mixture of precip types is still supported across
-the advisory area, although soundings and sfc temps suggest that
-sleet may be more prevalent than freezing rain.
-
-Exception may be across the area north of a Big Rapids to Clare
-line where sfc temps may be just cold enough to support some
-freezing rain and/or light accumulations of snow. However road
-temps are still in the mid to upr 30s so impacts may be delayed.
-
-East winds will be cranking up overnight and the hourly HRRR
-updates continue to show 40-45 mph gusts developing after
-midnight. This may be a bit on the high side, but there are some
-peak gusts reports of 30-35 kts currently noted in nrn IL.
-
-
-  --------------------------  MJS  --------------------------  
-
-
-.DISCUSSION...(This evening through next Wednesday)
-Issued at 203 PM EST Wed Jan 18 2023
-
--Mixed precipitation developing tonight for parts of the region
-
-Guidance is generally settling in on a period of snow...sleet then
-freezing rain/drizzle for interior Lower MI including Big
-Rapids...Mount Pleasant and Harrison for later tonight into
-Thursday morning. This is the region that is most likely to see
-surface temperatures falling to near or just under freezing
-tonight. Impacts are looking likely.  We issued a winter weather
-advisory as a result for these locations.
-
-The approaching warm front and associated overrunning
-precipitation will be the main source for the precipitation. Mid
-level FGEN is noted tonight on the north side of the front as
-well. With a dry slot in the 700 to 500 mb layer pushing north of
-the CWA by noon Thursday...we will only feature the headline
-until then. If surface temperatures stay below freezing during the
-afternoon and we still have drizzle persisting its possible that
-the headline may need to be extended in those region. Another item
-monitor is whether impacts will occur tonight for places like
-Muskegon...Grand Rapids and Lansing. If surface temperatures end
-up a degree or two lower tonight...we may need to shift the
-headlines further south. Generally though...that is not the most
-likely scenario so no headlines for those locations...but close
-monitoring will be needed.
-
--Impacts for the Friday morning commute?
-
-As the wave of low pressure pulls away later Thursday afternoon
-into early Friday...the colder air will filter/wrap back in. In
-the mid levels...the associated closed low tracks through MI and
-most models suggest that around 12z Fri...a vort max may dig into
-the backside of this departing feature. If this happens...in the
-colder air...we could see some stronger bands of snow around.
-Based on this...we may see some impacts on the roads then...which
-will be near the morning commute Friday.
-
--Possible accumulating snow Saturday night to Sunday
-
-A weak surface wave is shown to track east northeast through OH
-and IN during this timeframe. The accompanying positive tilted mid
-level trough will be tracking eastward through the CWA during
-this period as well. The GFS is showing deep moisture...mid level
-FGEN and decent omega in the DGZ. The surface temperatures remain
-below freezing for most of the event. Thus...this system has the
-potential to generate some impacts. The Canadian and ECMWF are
-also supportive for a couple of inches of snow as well.
-
--A surge of arctic air possible end of next week
-
-Models are showing a stronger mid level wave and associated cold
-front tracking through the area on Thursday. Behind these features
-it looks like the region will see a surge of arctic air tracking
-in. How long it lasts is unclear. The GFS and Canadian model are
-much more aggressive with this airmass...showing 925 mb temps
-dropping down to -20 to -25 deg C...while the ECMWF takes the
-values down to -15 deg C keeping most of the arctic air in
-Ontario. Also the Canadian and GFS are showing a stronger surface
-wave generating a swath of snow here in MI...while the ECMWF has
-this feature displace southeast of the CWA.
-
-
-  --------------------------  Thielke  --------------------------  
-
-
-.DISCUSSION...(Today through next Tuesday)
-Issued at 309 AM EST Wed Jan 18 2023
-
-- Next System Arrives Late Tonight
-
-A bit of light drizzle persists across a few spots early this
-morning, but as upper subsidence settles in this morning
-conditions will dry out near sunrise. Attention now turns to the
-next low pressure system that will move into lower MI late tonight
-into Thursday morning.
-
-As a warm front lifts north late tonight, steady precipitation
-will move into the area. Mainly rain is expected for the southern
-zones, while areas further north may see a period of mixed
-precipitation at the onset as the front slowly moves north. There
-remains uncertainty on exactly where the zone of mixed
-precipitation will occur, but there is increased confidence that
-along and north of the I-96 corridor will be the main area of
-focus. This mixed precipitation/snow will be short lived, as the
-warm advection pushes the freezing line further north Thursday
-morning and areas near Big Rapids and Mount Pleasant see a shift
-towards rain.
-
-Precipitation will continue through Thursday afternoon before this
-system slides east. Slightly colder air will move into the area on
-the backside of this system, resulting in highs generally in the 30s
-by this weekend. This persistent northwest flow will result in light
-lake effect showers into Friday alongside persistent cloud cover.
-
-- Slightly More Active Conditions For Next Week
-
-Ridging builds into the area later in the day on Friday and lasts
-through Saturday. There then remains uncertainty on the potential
-for a Sunday system, but current leanings stay with the more
-consistent ECMWF which portrays a more southern route for this
-possible southern stream system.
-
-While this stronger system may mostly miss us to our southeast,
-the overall pattern will shift more active into next week with
-increased upper troughing into the area. This will result in
-unsettled weather with frequent scattered rain/snow into the first
-half of next week.
-
-
-  --------------------------  Duke  --------------------------  
-
-
-.UPDATE...
-Issued at 1038 PM EST Tue Jan 17 2023
-
-Precipitation has all but ended across the area as the low
-pressure system responsible for the precipitation the last 24
-hours fills/moves off to the east. At 03Z, the low was centered
-over Georgian Bay on Northeast Lake Huron. Temperatures will not
-fall much tonight as extensive clouds remain in place. Latest
-satellite imagery shows clouds extending through both the Upper
-Midwest and the Northern Plains. A fair amount of wind will remain
-in the profile as well overnight which will also aid in keeping
-temperatures steady. Lows should generally be in the lower to
-middle 30s.
-
-
-  --------------------------  MJS  --------------------------  
-
-
-.DISCUSSION...(This evening through next Tuesday)
-Issued at 307 PM EST Tue Jan 17 2023
-
-.Light Rain/drizzle tapering off this evening
-The surface low over Northern Lower MI this afternoon will track
-east this evening.  Deeper moisture associated with this system here
-in Southwest Lower MI will also pull off to the east. Bufkit
-profiles show the DGZ becoming unsaturated here in GRR around 00z
-Wed. However the low level flow remains convergent and moist...as
-the winds veer off to the west northwest through tonight. Thus low
-clouds will prevail...with perhaps some drizzle tonight. A fairly
-strong signal for low level subsidence arrives Wed so we should see
-the some breaks in the clouds developing then.
-
-.Winter impacts potential on the increase for Wednesday night into
-Thursday
-
-The next low pressure system tracks in from the southwest for
-Wednesday night into Thursday. Ahead of the main area of
-precipitation...surface temperatures will be cooling off
-Wednesday evening here in Southwest Lower MI. As an associated
-warm front lifts towards the CWA from the south...steady precipitation
-will be spreading in. Our southern zones should see mainly a rain
-event...however further north...at the onset...forecast soundings
-and critical thickness values support a zone of mixed
-precipitation developing. There is some uncertainty exactly where
-that zone will be...but confidence in on the increase that the
-southern end of mixed precipitation will be located just north of
-Interstate 96 to start. The onset should be snow for the northern
-locations such as Harrison as soundings show the web bulb profile
-below freezing. As the warm front lifts further north Thursday
-morning the rain/mixed precipitation line is forecast to shift
-north toward Big Rapids and Mount Pleasant. Models continue to
-show a significant dry slot with this system which is expected to
-cut back on the total qpf from this system for our CWA. That
-feature arrives later Wednesday night into into Thursday morning.
-The mid to upper level low arrives Thursday afternoon from the
-west...thus another round of steady precipitation will resume then
-for parts of the area. While much of the region will feature
-above freezing temperatures by the time the steady precipitation
-resumes...interior Lower MI may still be around freezing...so a
-risk for continued impacts may exist.
-
-.Another storm system approaches for Sunday
-The GFS is tracking the area of impactful snow well into the CWA
-as compared to most of the other models keeping the snow further
-south. Aloft the GFS is showing much stronger upper level
-divergence for MI. This model has not shown good continuity with
-this feature so we will not favor it. We will favor the ECMWF and
-Canadian which show the strongest energy staying south of the CWA.
-
-
-  --------------------------  Thielke  --------------------------  
+Issued at 1054 PM EDT Tue May 23 2023
+
+Back door cold front timing is for an early Wednesday morning
+fropa and a stark change to the currently calm/mild conditions.
+Expecting a surge of cool northeast winds to sweep through around
+12Z, with wind gusts to 30 mph at times on Wednesday behind the
+front and temps only in the 60s. (May even stay stuck in the 50s
+downwind of Saginaw Bay.) Precip chances are very low along the
+front given all the dry air, with low chc pops for light showers
+or sprinkles restricted to mainly just the Clare/Mt Pleasant
+areas.
+
+
+  --------------------------  Ostuno  --------------------------  
 
 
 .DISCUSSION...(Today through next Monday)
-Issued at 325 AM EST Tue Jan 17 2023
+Issued at 208 AM EDT Tue May 23 2023
 
-- Spotty Rain Continues Today, Switch to Snow Possible This Evening
+Quiet weather patten continues. One more warm day before Canadian
+high pressure builds in and brings cooler temperatures on
+Wednesday. Added slight chance POPs to the northern forecast area
+for early Wednesday as some light showers are possible in the
+strong convergence along the cold front.
 
-Temperatures still sit comfortably above freezing as of 3am with
-temps ranging from the 40s to the south and down into the mid 30s to
-the north. Meanwhile radar continues to show spotty showers and
-drizzle across the area, but given the mild temps the concern for
-freezing rain/drizzle is low at this time. While we may still cool a
-few degrees within the next few hours, wet bulb temps will hold
-above freezing, so the outlook for freezing precip for the rest of
-this morning looks minimal.
+Frost and even some freezing temperatures possible Wednesday
+night as surface ridging brings good radiational cooling
+conditions. Cold hollows up north could drop into the upper 20s
+but expect most places will be in the 30s. Frost/Freeze potential
+will be monitored.
 
-This low pressure system will move northeast by this evening
-resulting in the upper flow shifting northwesterly. Colder air will
-filter into the area, and any lingering rain may mix in with snow
-late tonight mainly across central and northern lower MI.
+Blocking pattern, with omega block transitioning to a rex block
+will keep Great Lakes region mostly dry into next week. Only
+chance of rain will be later in the weekend if upper low that cuts
+off across the central Appalachians meanders far enough north.
 
-- Bigger System Late Wednesday/Thursday Morning
 
-Moisture wanes shortly after midnight as the low pulls further away,
-thus any lingering precipitation should end by sunrise Wednesday
-morning. Dry conditions will dominate much of the day Wednesday
-before our next Southern Plains system arrives late Wednesday
-night into early Thursday.
+  --------------------------  Ostuno  --------------------------  
 
-There remains fairly good consistency in model output on the overall
-evolution of this system. Subtle differences still exist however,
-which lead to a small amount of uncertainty on the track of the
-system and thus precipitation amounts and the location of the
-rain/snow line. Given the early morning arrival of the system,
-temperatures that will be near to slightly above freezing will bring
-the possibility for a rain/snow mix at the onset. The greatest
-chance for snow accumulations will exist across the northern half of
-the CWA, particularly areas north of I-96. Warm advection will
-increase Thursday afternoon, leading to a northward shift of the
-rain/snow line towards US-10 by mid-afternoon.
 
-The flow shifts northwesterly on Friday as the Southern Plains low
-exits east. There is a chance we could see some effects of this
-lingering northwest flow into Friday, but certainty is low at the
-moment.
+.DISCUSSION...(Today through next Sunday)
+Issued at 300 AM EDT Mon May 22 2023
 
-- Mostly Dry Weekend
+Two very low chances for rain this week, otherwise very quiet
+weather to continue into the weekend. Slight chance POPS for the
+northeast forecast area continues for this afternoon but soundings
+show that moisture is quite limited. There is also limited
+instability, so any rain should be light.
 
-Moisture continues to dwindle across the area into this weekend as
-high pressure builds in from our west. Uncertainty increases into
-Sunday as models diverge on possible scenarios. The ECMWF remains
-fairly dry through this weekend, while the more active GFS suggests
-another system moves in from the southwest.
+The other chance for rain would be along the strong cold front on
+Wednesday morning. The moisture is deeper, but the front comes
+through during the early morning, when instability is at the
+diurnal low. We do not currently have POPS during this time but
+may add them based on future model trends.
+
+Canadian high pressure brings a cold Thursday morning and frost
+and freezing temperatures might be an issue across the northern
+forecast area. Temperatures moderate by the end of the week.
+
+
+  --------------------------  04  --------------------------  
+
+
+.DISCUSSION...(Today through next Saturday)
+Issued at 316 AM EDT Sun May 21 2023
+
+...Dry through Saturday...
+
+High pressure currently centered over the Missouri Valley will drift
+east this week and when combined with the northwest flow aloft will
+result in dry weather and lots of sunshine, along with warmer
+temperatures.
+
+An upper trough exists over Hudson Bay and ECMWF/GFS show several
+short waves rotating around it. We`ll see a cold front drop south
+across Lower Michigan Wednesday. The moisture that is noted along
+the front will likely remain over Ontario, but it`s possible that a
+few showers could clip northeast Lower or the Thumb with an outside
+chance of the far eastern cwa. Chances are too low to include any
+precipitation in the grids for mid week.
+
+The result of Wednesday`s cold front will be an increase in some
+clouds, slightly cooler temperatures and a continued dry northeast
+wind.
+
+
+  --------------------------  NJJ  --------------------------  
+
+
+.DISCUSSION...(This evening through next Saturday)
+Issued at 249 PM EDT Sat May 20 2023
+
+-- Mainly dry and warm through the next week --
+
+We are seeing the last vestiges of the upper low this afternoon that
+brought rain to parts of the area yesterday, and the cloud cover
+today. The upper low is in the process of rotating out of the area,
+and skies should clear out entirely this evening.
+
+We will see anticyclonic flow take control of the weather for the
+region over the next few days through Wednesday. We will be out
+ahead of a fairly decent amplitude upper ridge that will be centered
+generally over the Plains. Being downstream of this ridge, we will
+be under increasing subsidence that will provide the dry weather.
+
+We will be on the edge of the subsidence, and just south of the jet
+stream. We will see multiple waves ride north of us across Canada,
+with the tail end shear zone barely clipping the state. These will
+mostly be moisture starved, so most of the effects will be a few mid
+and upper level clouds. We will see temperatures aloft warm each day
+through Tuesday, allowing sfc temperatures to respond and do the
+same thing, with highs mainly in the 70s.
+
+We will see a bit stronger wave move by to our north on Wednesday,
+and an associated stronger push of cooler air drop down as a result
+in the form of a backdoor cold front. The models differed a bit on
+this over the last 24 hours, but have come into pretty good
+agreement in showing it now. This front will be moisture starved
+also, but could be strong enough to squeeze out a sprinkle or two as
+it drops in. This front will bring highs back into the 60s for Wed
+and possibly Thursday with the Canadian air mass dropping in.
+
+Once that wave moves through, the upper ridge will reestablish itself
+to our west by Friday. This will reinforce our dry weather, and help
+to warm temperatures back up again and even warmer for the upcoming
+holiday weekend.
