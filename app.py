@@ -1,9 +1,11 @@
-from dash import Dash, html, dcc
+"""
+This is the main app that drives everything
+"""
 import dash
 import dash_bootstrap_components as dbc
 app = dash.Dash(__name__, external_stylesheets= [dbc.themes.DARKLY],use_pages=True)
 
-assets_dir = "/home/tjturnage/multipage/assets"
+ASSETS_DIR = "/home/tjturnage/multipage/assets"
 
 header = dbc.Navbar(
     dbc.Container(
@@ -28,4 +30,4 @@ header = dbc.Navbar(
 app.layout = dbc.Container([header, dash.page_container], fluid=False)
 
 if __name__ == '__main__':
-	app.run_server(debug=True)
+    app.run_server(debug=True)

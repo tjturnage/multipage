@@ -1,34 +1,39 @@
+"""
+Main projects page is the graffitti page
+"""
+from pathlib import Path
 import dash
-from dash import html, dcc, Input, Output, State, callback
+from dash import html, dcc, Input, Output, callback
 import dash_bootstrap_components as dbc
 import plotly.express as px
-import plotly.graph_objs as go
-from .side_bar import sidebar
 import pandas as pd
-from pathlib import Path
+#from . import ids
+from .side_bar import sidebar
+
+GRAFFITI_LINE_CHART = "graf_line_chart"
+DISTRICT_CHOSEN = "district_chosen"
 
 p = Path('/home/tjturnage')
 #p = Path('C:/data/scripts')
 
 
-q = p / 'multipage' / 'assets' / 'Berlin_crimes.csv'
+q = p / 'multipage' / 'data' / 'Berlin_crimes.csv'
 
 if q.exists():
-    data = q
+    DATA = q
 else:
-    data = "assets/Berlin_crimes.csv"
+    DATA = "data/Berlin_crimes.csv"
 
-df = pd.read_csv(data)
+df = pd.read_csv(DATA)
 
 #print(df)
 
 dash.register_page(__name__, title="Grafitti", order=1)
 
-
-
-
-
 def layout():
+    """
+    Temp layout
+    """
     return html.Div(
         [
             dbc.Row(
@@ -41,14 +46,14 @@ def layout():
                                 style={"textAlign": "center"},
                             ),
                             dcc.Dropdown(
-                                id="district_chosen",
+                                id = DISTRICT_CHOSEN,
                                 options=df["District"].unique(),
                                 value=["Lichtenberg", "Pankow", "Spandau"],
                                 multi=True,
                                 style={"color": "black"},
                             ),
                             html.Hr(),
-                            dcc.Graph(id="line_chart", figure={}),
+                            dcc.Graph(id=GRAFFITI_LINE_CHART, figure={}),
                         ],
                         xs=8,
                         sm=8,
@@ -63,22 +68,25 @@ def layout():
     )
 
 
-@callback(Output("line_chart", "figure"), Input("district_chosen", "value"))
+@callback(Output(GRAFFITI_LINE_CHART, "figure"), Input(DISTRICT_CHOSEN, "value"))
 def update_graph_card(districts):
+    """
+    Graffiti line chart
+    """
     if len(districts) == 0:
         return dash.no_update
-    else:
-        df_filtered = df[df["District"].isin(districts)]
-        df_filtered = (
-            df_filtered.groupby(["Year", "District"])[["Graffiti"]]
-            .median()
-            .reset_index()
-        )
-        fig = px.line(
-            df_filtered,
-            x="Year",
-            y="Graffiti",
-            color="District",
-            labels={"Graffiti": "Graffiti incidents (avg)"},
-        ).update_traces(mode="lines+markers")
-        return fig
+
+    df_filtered = df[df["District"].isin(districts)]
+    df_filtered = (
+        df_filtered.groupby(["Year", "District"])[["Graffiti"]]
+        .median()
+        .reset_index()
+    )
+    fig = px.line(
+        df_filtered,
+        x="Year",
+        y="Graffiti",
+        color="District",
+        labels={"Graffiti": "Graffiti incidents (avg)"},
+    ).update_traces(mode="lines+markers")
+    return fig
