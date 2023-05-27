@@ -175,7 +175,7 @@ class AFD:
     def write_text(self):
         """_summary_
         """
-        with open('afds.txt', 'w', encoding='utf-8') as fout:
+        with open(output_path, 'w', encoding='utf-8') as fout:
             for value in self.section_dict.values():
                 fout.write(value)
 
