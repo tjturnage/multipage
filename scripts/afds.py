@@ -4,12 +4,13 @@
         _type_: _description_
 """
 from datetime import datetime
-from pathlib import Path
+#from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-
+"""
 h = Path('/home')
+
 if h.exists():
     p = h / 'tjturnage'
     if p.exists():
@@ -19,9 +20,9 @@ if h.exists():
         print("get on pyanwhere!")
 else:
     q = Path('assets')
+"""
 
-if q.exists():
-    output_path = q / 'afds.txt'
+OUTPUT_PATH = '/home/tjturnage/multipage/assets/afds.txt'
 
 
 UPDATE = True
@@ -175,7 +176,7 @@ class AFD:
     def write_text(self):
         """_summary_
         """
-        with open(output_path, 'w', encoding='utf-8') as fout:
+        with open(OUTPUT_PATH, 'w', encoding='utf-8') as fout:
             for value in self.section_dict.values():
                 fout.write(value)
 

@@ -15,7 +15,7 @@ def layout():
             dbc.Col(
                 html.Div([
                     #dbc.Button("Show File Content", id="display-file-content-btn", color="success", style={'padding':'1em','width':'100%'}),
-                    html.Div(children=[html.ObjectEl(data="https://tjturnage.pythonanywhere.com/assets/afds.txt")],id="display-file-content-response")
+                    html.Div(children=[html.ObjectEl(data="https://tjturnage.pythonanywhere.com/multipage/assets/afds.txt")],id="display-file-content-response")
                 ],
                 style={'padding':'1em'})
             )
