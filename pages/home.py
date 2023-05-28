@@ -11,7 +11,7 @@ top_content = [
                 html.Div([
                 dbc.CardLink("GitHub", href="https://github.com/tjturnage")]),
                 html.Div([
-                dbc.CardLink("@turnageweather", href="https://twitter.com/turnageweather")]),])
+                dbc.CardLink("Linkedin", href="https://www.linkedin.com/in/tjturnage/")]),])
 ]
 
 # Define the page layout
