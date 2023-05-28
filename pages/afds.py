@@ -6,7 +6,7 @@ import dash_bootstrap_components as dbc
 dash.register_page(__name__,
     path='/afds',
     title='Area Forecast Discussions',
-    name='Area Forecast Discussions')
+    name='AFDs')
 
 # Define the page layout
 def layout():
