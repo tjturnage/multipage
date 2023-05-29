@@ -251,9 +251,11 @@ class Mesowest():
                 wdir_str = 'NA'
                 wspd_str = 'NA'
                 wgst_str = 'NA'
+                vis_txt = ''
                 vis_str = 'NA'
+                rt_txt = ''
                 rt_str = 'NA'
-                if (status == 'ACTIVE'):
+                if status == 'ACTIVE':
                     for _n,element in enumerate(self.var_list):
                         short = str(self.short_dict[element])
                         try:
@@ -269,7 +271,8 @@ class Mesowest():
                                 rt_txt = temp_txt + text_info
                             elif short == 'vis':
                                 if int(network) != 162:
-                                    vis_str, text_info = self.convert_met_values(scratch,short,network)
+                                    vis_str, text_info = \
+                                    self.convert_met_values(scratch,short,network)
                                     vis_txt = temp_txt + text_info
                                 else:
                                     pass
@@ -288,7 +291,7 @@ class Mesowest():
                             print(f"Caught a TypeError: {type_error}")
                             pass
                         except Exception as exception:   # Use a general exception handler as a "catch all"
-                            print(f"Caught an unexpected error: {exception}")
+                            #print(f"Caught an unexpected error: {exception}")
                             pass
 
 

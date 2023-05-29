@@ -4,23 +4,9 @@
         _type_: _description_
 """
 from datetime import datetime
-#from pathlib import Path
+# from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
-
-"""
-h = Path('/home')
-
-if h.exists():
-    p = h / 'tjturnage'
-    if p.exists():
-        q = p / 'multipage' / 'assets' 
-    else:
-        q = None
-        print("get on pyanwhere!")
-else:
-    q = Path('assets')
-"""
 
 OUTPUT_PATH = '/home/tjturnage/multipage/assets/afds.txt'
 
@@ -59,13 +45,14 @@ if CLIMATE:
     sections_to_retrieve.append('.CLIMATE')
 
 
-#print(f'You selected: {sections_to_retrieve}')
+# print(f'You selected: {sections_to_retrieve}')
 
 
 class AFD:
     """
     AFD class
     """
+
     def __init__(self, wfo, versions=45):
         self.wfo = wfo
         self.versions = min(int(versions), 50)
@@ -138,7 +125,7 @@ class AFD:
         except IndexError:
             return
 
-        #issuance_time_string = self.get_time(section_text)
+        # issuance_time_string = self.get_time(section_text)
 
         try:
             forecaster_id = self.get_forecaster_id(afd_text, section_name)
@@ -166,7 +153,10 @@ class AFD:
         """_summary_
         """
         for version in range(1, self.versions):
-            next_url = f'https://forecast.weather.gov/product.php?site={self.wfo}&issuedby={self.wfo}&product=AFD&format=ci&version={version}&glossary=0'
+            url_base = 'https://forecast.weather.gov/product.php?'
+            url_wfo=f'site={self.wfo}&issuedby={self.wfo}'
+            url_prod=f'&product=AFD&format=ci&version={version}&glossary=0'
+            next_url = url_base + url_wfo + url_prod
             next_page = requests.get(next_url, timeout=5)
             next_soup = BeautifulSoup(next_page.content, 'html.parser')
             afd_text = str(next_soup.pre)
@@ -183,4 +173,3 @@ class AFD:
 
 if __name__ == '__main__':
     test = AFD("GRR", 45)
-    
