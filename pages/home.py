@@ -3,7 +3,10 @@ import dash
 from dash import html
 import dash_bootstrap_components as dbc
 
-dash.register_page(__name__, path='/', order=0)
+dash.register_page(__name__, path='/',
+    title='turnageweather',
+    name='turnageweather',
+    order=0)
 
 
 top_content = [
