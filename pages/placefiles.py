@@ -60,13 +60,13 @@ bullet_list = dbc.Col(
         html.Li(html.A("Surface Obs", \
         href="assets/latest_surface_observations.txt")),
         html.Li(html.A("Air Temperature", \
-        href="https://tjturnage.pythonanywhere.com/assets/temp.txt")),
+        href="assets/temp.txt")),
         html.Li(html.A("Dewpoint Temperature", \
-        href="https://tjturnage.pythonanywhere.com/assets/dwpt.txt")),
+        href="assets/dwpt.txt")),
         html.Li(html.A("MI Road Temperature", \
-        href="https://tjturnage.pythonanywhere.com/assets/road.txt")),
+        href="assets/road.txt")),
         html.Li(html.A("Wind and Gust", \
-        href="https://tjturnage.pythonanywhere.com/assets/wind.txt")),
+        href="assets/wind.txt")),
     ])
 )
 
