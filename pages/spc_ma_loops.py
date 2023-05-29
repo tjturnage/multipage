@@ -6,7 +6,8 @@ import dash_bootstrap_components as dbc
 dash.register_page(__name__,
     path='/spc_ma_loops',
     title='SPC Mesoanalysis Loops',
-    name='MesoA Loops')
+    name='MesoA Loops',
+    order=4)
 
 
 EMBEDDED_HTML = """

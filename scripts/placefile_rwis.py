@@ -18,7 +18,7 @@ import requests
 
 try:
     os.listdir('/home/tjturnage')
-    DEST_HOME = '/home/tjturnage/assets'
+    DEST_HOME = '/home/tjturnage/multipage/assets'
 except FileNotFoundError:
     DEST_HOME = 'C:/data'
 
@@ -346,7 +346,7 @@ class Mesowest():
         """
         api_request_url = os.path.join(API_ROOT, "stations/nearesttime")
         self.api_args['attime'] = time_str
-        req = requests.get(api_request_url, params=self.api_args, timeout=10)
+        req = requests.get(api_request_url, params=self.api_args, timeout=30)
 
         jas = req.json()
         return jas

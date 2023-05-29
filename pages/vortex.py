@@ -6,7 +6,8 @@ import dash_bootstrap_components as dbc
 dash.register_page(__name__,
     path='/vortex',
     title='Rankine Vortex',
-    name='Rankine Vortex')
+    name='Rankine Vortex',
+    order=5)
 
 EMBEDDED_HTML = """
 <!DOCTYPE html>
