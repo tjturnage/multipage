@@ -55,6 +55,21 @@ EMBEDDED_HTML = """
 </html>
 """
 
+bullet_list = dbc.Col(
+    html.Ul([
+        html.Li(html.A("Surface Obs", \
+        href="assets/latest_surface_observations.txt")),
+        html.Li(html.A("Air Temperature", \
+        href="https://tjturnage.pythonanywhere.com/assets/temp.txt")),
+        html.Li(html.A("Dewpoint Temperature", \
+        href="https://tjturnage.pythonanywhere.com/assets/dwpt.txt")),
+        html.Li(html.A("MI Road Temperature", \
+        href="https://tjturnage.pythonanywhere.com/assets/road.txt")),
+        html.Li(html.A("Wind and Gust", \
+        href="https://tjturnage.pythonanywhere.com/assets/wind.txt")),
+    ])
+)
+
 # Define the page layout
 def layout():
     """mesoanalysis page layout
@@ -62,13 +77,21 @@ def layout():
     Returns:
         None
     """
-    return dbc.Container([
-      dbc.Row([
-          dbc.Col(
-              html.Iframe(
-                  srcDoc=EMBEDDED_HTML,
-                  style={'width': '100%', 'height': '980px'}
-              )
-          )
-        ],style={'padding':'0.5em'}),
-            ])
+    return dbc.Container(bullet_list)
+
+# def layout():
+#     """mesoanalysis page layout
+
+#     Returns:
+#         None
+#     """
+#     return dbc.Container([
+#       dbc.Row([
+#           dbc.Col(
+#               html.Iframe(
+#                   srcDoc=EMBEDDED_HTML,
+#                   style={'width': '100%', 'height': '980px'}
+#               )
+#           )
+#         ],style={'padding':'0.5em'}),
+#             ])
