@@ -19,7 +19,7 @@ if q.exists():
 else:
     DATA = "data/climate.txt"
 
-df = pl.read_csv('/home/tjturnage/multipage/data/climate.txt', has_header=True, null_values=["M"])
+df = pl.read_csv('/home/tjturnage/multipage/assets/climate.txt', has_header=True, null_values=["M"])
 df = df.with_columns(
     [
     pl.col("pcpn").str.replace("T", "0.001"),
