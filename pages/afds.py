@@ -22,9 +22,12 @@ def layout():
                 html.Div([
                 html.Div(children=[html.ObjectEl( \
                 data="https://tjturnage.pythonanywhere.com/assets/afds.txt")], \
-                id="display-file-content-response")
+                id="display-file-content-response",
+                style={'height':'800px'})
                 ],
-                style={'padding':'1em'})
+                style={'padding':'1em',
+                       'height':'900px'})
             )
-        ],style={'padding':'0.5em'}),
+        ],style={'padding':'0.5em',
+                 'height':'900px'}),
         ])
