@@ -11,14 +11,14 @@ import polars as pl
 import plotly.express as px
 
 p = Path('/home/tjturnage')
-q = p / 'multipage' / 'assets' / 'climate.txt'
+q = p / 'multipage' / 'data' / 'climate.txt'
 
 if q.exists():
     DATA = q
 else:
     DATA = "data/climate.txt"
 
-df = pl.read_csv('data/climate.txt', has_header=True, null_values=["M"])
+df = pl.read_csv(DATA, has_header=True, null_values=["M"])
 df = df.with_columns(
     [
     pl.col("pcpn").str.replace("T", "0.001"),
