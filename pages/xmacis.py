@@ -9,17 +9,16 @@ import dash_bootstrap_components as dbc
 import polars as pl
 #import pandas as pd
 import plotly.express as px
-from .side_bar import sidebar
 
 p = Path('/home/tjturnage')
-q = p / 'multipage' / 'data' / 'climate.txt'
+q = p / 'multipage' / 'assets' / 'climate.txt'
 
 if q.exists():
     DATA = q
 else:
     DATA = "data/climate.txt"
 
-df = pl.read_csv('/home/tjturnage/multipage/assets/climate.txt', has_header=True, null_values=["M"])
+df = pl.read_csv('data/climate.txt', has_header=True, null_values=["M"])
 df = df.with_columns(
     [
     pl.col("pcpn").str.replace("T", "0.001"),
@@ -86,6 +85,4 @@ def update_graph(range, el):
     """
     doc string test
     """
-
-    
     return px.histogram(x=out.select(el).filter(pl.col(el) <= range[1]).filter(pl.col(el) >= range[0]).to_series(),range_y=[0, 1200])

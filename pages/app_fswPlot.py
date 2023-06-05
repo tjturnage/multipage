@@ -39,7 +39,6 @@ data = {'dts':dts_pd, 'product':product}
 df_temp = pd.DataFrame(data)
 df_temp.set_index('dts', inplace=True)
 unique_prods = list(df_temp['product'].unique())
-print(unique_prods)
 for p in unique_prods:
     #df_temp[p] = np.where(df_temp['product'] == p,1,0).cumsum()
     df_temp[p] = np.where(df_temp['product'] == p,1,0).sum()
@@ -107,4 +106,3 @@ def update_graph_card(products):
         labels={"Graffiti": "Graffiti incidents (avg)"},
     ).update_traces(mode="lines+markers")
     return fig
-
