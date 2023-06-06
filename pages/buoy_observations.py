@@ -189,7 +189,7 @@ fig1.update_layout(
         l=10,
         r=10,
         b=10,
-        t=25,
+        t=40,
         pad=4
     )
 )
