@@ -34,7 +34,7 @@ with open(DATA,'r', encoding='utf_8') as src:
             product.append(values[1][1:])
 
 #print(dts,product)
-dts_pd = pd.to_datetime(dts,format='%m-%d-%Y %H:%M', infer_datetime_format=False)
+dts_pd = pd.to_datetime(dts,format='%m-%d-%Y %H:%M')
 data = {'dts':dts_pd, 'product':product}
 df_temp = pd.DataFrame(data)
 df_temp.set_index('dts', inplace=True)
