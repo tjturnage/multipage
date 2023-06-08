@@ -7,6 +7,7 @@ app = dash.Dash(__name__, external_stylesheets= [dbc.themes.DARKLY],use_pages=Tr
 app.config['suppress_callback_exceptions'] = True
 
 ASSETS_DIR = "/home/tjturnage/multipage/assets"
+BASE_DIRECTORY = "/home/tjturnage/multipage"
 
 header = dbc.Navbar(
     dbc.Container(

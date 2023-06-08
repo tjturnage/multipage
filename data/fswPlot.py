@@ -8,8 +8,13 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
 import numpy as np
-from . import ids
-from .side_bar import sidebar
+#from . import ids
+#from ./pages.side_bar import sidebar
+
+FSW_PRODUCT_CHOSEN = "fsw_product_chosen"
+GRAFFITI_LINE_CHART = "graf_line_chart"
+DISTRICT_CHOSEN = "district_chosen"
+
 
 p = Path('/home/tjturnage')
 q = p / 'multipage' / 'data' / 'fsw_output.txt'
@@ -20,9 +25,9 @@ else:
     DATA = "data/fsw_output.txt"
 
 
-dash.register_page(__name__,
-title='FSW_plot',
-name='FSW_plot',order=2)
+#dash.register_page(__name__,
+#title='FSW_plot',
+#name='FSW_plot',order=2)
 
 dts = []
 product = []
@@ -56,7 +61,7 @@ def layout():
         [
             dbc.Row(
                 [
-                    dbc.Col([sidebar()], xs=4, sm=4, md=2, lg=2, xl=2, xxl=2),
+                    #dbc.Col([sidebar()], xs=4, sm=4, md=2, lg=2, xl=2, xxl=2),
                     dbc.Col(
                         [
                             html.H3(
@@ -64,7 +69,7 @@ def layout():
                                 style={"textAlign": "center"},
                             ),
                             dcc.Dropdown(
-                                id=ids.FSW_PRODUCT_CHOSEN
+                                id=FSW_PRODUCT_CHOSEN
 ,
                                 options=df_temp["product"].unique(),
                                 value=["AFDGRR", "AFDAPX"],
@@ -87,7 +92,7 @@ def layout():
     )
 
 
-@callback(Output("line_chart_new", "figure"), Input(ids.FSW_PRODUCT_CHOSEN, "value"),suppress_callback_exceptions=True)
+@callback(Output("line_chart_new", "figure"), Input(FSW_PRODUCT_CHOSEN, "value"),suppress_callback_exceptions=True)
 def update_graph_card(products):
     """
     doc string test

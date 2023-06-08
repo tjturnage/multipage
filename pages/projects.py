@@ -8,7 +8,7 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
 #from . import ids
-from .side_bar import sidebar
+#from .side_bar import sidebar
 
 GRAFFITI_LINE_CHART = "graf_line_chart"
 DISTRICT_CHOSEN = "district_chosen"
@@ -38,7 +38,7 @@ def layout():
         [
             dbc.Row(
                 [
-                    dbc.Col([sidebar()], xs=4, sm=4, md=2, lg=2, xl=2, xxl=2),
+                    #dbc.Col([sidebar()], xs=4, sm=4, md=2, lg=2, xl=2, xxl=2),
                     dbc.Col(
                         [
                             html.H3(

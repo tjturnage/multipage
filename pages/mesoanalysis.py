@@ -1786,7 +1786,7 @@ please email thomas.turnage@noaa.gov for bug reports or suggestions
             values (rounded integer %), with color coding related to the climatology of the sample. For example, brown denotes values lower than the sample \
             climatology, and yellow is near climatological EF4+ frequency. Red, magenta, and dark purple values are all increasingly larger than the \
             climatological EF4+ frequency. The source data for the EF4+ tornado probabilities is shown by the red curve shown in \
-            <a href="https://www.spc.noaa.gov/publications/smith/fig18_stp_probs_14-15only_ef0+_ef2+_ef4+_adjusted.png" target="_blank">this plot</a>. <br>\
+            <a href="https://www.spc.noaa.gov/publications/smith/fig8_stp_probs_14-15only_ef0+_ef2+_ef4+_adjusted.png" target="_blank">this plot</a>. <br>\
             </div><div class="spc-ref">see <a href="https://www.spc.noaa.gov/publications/smith/vrot-env.pdf" target="_blank">this paper</a> for additional details.</div>',
 
             'pstpe': '<div class="spc-prod">Conditional probability of EF2+ tornadoes</div><div class="spc-info">The conditional probability of EF2+ tornadoes \
@@ -1795,7 +1795,7 @@ please email thomas.turnage@noaa.gov for bug reports or suggestions
             values (rounded integer %), with color coding related to the climatology of the sample. For example, brown denotes values lower than the sample \
             climatology, and yellow is near climatological EF4+ frequency. Red, magenta, and dark purple values are all increasingly larger than the \
             climatological EF4+ frequency. The source data for the EF4+ tornado probabilities is shown by the red curve shown in \
-            <a href="https://www.spc.noaa.gov/publications/smith/fig18_stp_probs_14-15only_ef0+_ef2+_ef4+_adjusted.png" target="_blank">this plot</a>. \
+            <a href="https://www.spc.noaa.gov/publications/smith/fig8_stp_probs_14-15only_ef0+_ef2+_ef4+_adjusted.png" target="_blank">this plot</a>. \
             </div><div class="spc-ref">Please see <a href="https://www.spc.noaa.gov/publications/smith/vrot-env.pdf" target="_blank">this paper</a> \
             for additional details.</div>',
 
@@ -1805,7 +1805,7 @@ please email thomas.turnage@noaa.gov for bug reports or suggestions
             values (rounded integer %), with color coding related to the climatology of the sample. For example, brown denotes values lower than the sample \
             climatology, and yellow is near climatological EF4+ frequency. Red, magenta, and dark purple values are all increasingly larger than the \
             climatological EF4+ frequency. The source data for the EF4+ tornado probabilities is shown by the red curve shown in \
-            <a href="https://www.spc.noaa.gov/publications/smith/fig18_stp_probs_14-15only_ef0+_ef2+_ef4+_adjusted.png" target="_blank">this plot</a>. Please \
+            <a href="https://www.spc.noaa.gov/publications/smith/fig8_stp_probs_14-15only_ef0+_ef2+_ef4+_adjusted.png" target="_blank">this plot</a>. Please \
             see <a href="https://www.spc.noaa.gov/publications/smith/vrot-env.pdf" target="_blank">this paper</a> for additional details.</div>',
 
 
