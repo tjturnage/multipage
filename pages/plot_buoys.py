@@ -16,8 +16,7 @@ import pandas as pd
 now = datetime.utcnow()
 start = now - timedelta(hours=3)
 
-#root_directory = Path().absolute().parts[0]
-#scripts_directory = root_directory / 'data' / 'scripts' / 'pyany' / 'data'
+
 read_data_directory = '/home/tjturnage/multipage/data'
 if 'pyany' in Path().absolute().parts:
     read_data_directory = 'C:/data/scripts/pyany/data'
@@ -62,7 +61,12 @@ def layout():
     return html.Div([
         dbc.Container([
             dbc.Row(dbc.Col(html.H2("Buoy Observations"))),
-            dbc.Row(dbc.Col(dcc.Graph(id='graph', figure=fig)))
+            dbc.Row(dbc.Col(dcc.Graph(id='graph', figure=fig))),
+            dcc.Interval(
+                id='interval',
+                interval=60 * 1000,  # in milliseconds
+                n_intervals=0,
+                max_intervals=-1)
         ]),
 
     ])
