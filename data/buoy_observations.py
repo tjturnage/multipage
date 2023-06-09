@@ -31,7 +31,7 @@ BUOY_NAMES = {'45024': 'Ludington Buoy',
          '45007': 'LM South Buoy'
 }
 
-BUOYS = list(BUOY_NAMES.keys())
+BUOY_IDS = list(BUOY_NAMES.keys())
 
 
 dash.register_page(__name__,
@@ -82,7 +82,7 @@ buoy_data = {'45024': df_45024,
             '45007': df_45007
             }
 
-for buoy in BUOYS:
+for buoy in BUOY_IDS:
     this_df = buoy_data[buoy]
     url = f'{BASE_URL}/{buoy}.txt'
     this_df = pd.read_csv(url, delim_whitespace=True, skiprows=[1], na_values='MM', nrows=200)
@@ -101,13 +101,7 @@ for buoy in BUOYS:
     # copy this freshly made dataframe to the specific df for this site
     buoy_data[buoy] = short_df.copy(deep=True)
 
-def set_color(y):
-    if(y < 10):
-        return "green"
-    if(y < 16):
-        return "yellow"
-    else:
-        return "red"
+
 
 if max_height > 15:
     max_wave = 20
