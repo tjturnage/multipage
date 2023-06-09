@@ -29,7 +29,7 @@ BUOY_NAMES = {'45024': 'Ludington Buoy',
         '45007': 'LM South Buoy'
 }
 
-BUOYS = list(BUOY_NAMES.keys())
+BUOY_IDS = list(BUOY_NAMES.keys())
 
 @dataclass
 class BuoyDataFrames:
@@ -79,7 +79,7 @@ class BuoyData():
         """_summary_
         """
 
-        for buoy in BUOYS:
+        for buoy in BUOY_IDS:
             this_df = self.buoy_data[buoy]
             url = f'{BASE_URL}/{buoy}.txt'
             this_df = pd.read_csv(url, delim_whitespace=True, skiprows=[1], na_values='MM', nrows=200)
