@@ -7,9 +7,10 @@ from pathlib import Path
 import pandas as pd
 
 
-cwd = Path().absolute()
-data_directory = cwd.parent / 'data'
 
+DEST_DATA_DIRECTORY = '/home/tjturnage/multipage/data'
+if 'pyany' in Path().absolute().parts:
+    DEST_DATA_DIRECTORY = 'C:/data/scripts/pyany/data'
 
 ELEMENT_NAMES = ['WDIR','WSPD','WGST','WVHT']
 ELEMENT_DICT = {'WDIR': 0, 'WSPD': 1, 'WGST': 2, 'WVHT': 3}
@@ -94,7 +95,7 @@ class BuoyData():
             this_df['WVHT'] = this_df['WVHT'] * METERS_TO_FEET
             #short_df = this_df.loc[this_df['dts'] > start]
 
-            destination = data_directory / f'{buoy}.csv'  
+            destination = DEST_DATA_DIRECTORY / f'{buoy}.csv'  
             this_df.to_csv(destination, index=False)
 
         return
