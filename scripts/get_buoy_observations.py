@@ -95,7 +95,7 @@ class BuoyData():
             this_df['WVHT'] = this_df['WVHT'] * METERS_TO_FEET
             #short_df = this_df.loc[this_df['dts'] > start]
 
-            destination = DEST_DATA_DIRECTORY / f'{buoy}.csv'  
+            destination = f'{DEST_DATA_DIRECTORY}/{buoy}.csv'  
             this_df.to_csv(destination, index=False)
 
         return
