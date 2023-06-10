@@ -120,21 +120,21 @@ WINDSPEED_TITLE = 'Wind Speed and Gust (kt)'
 WAVE_SUB_PREFIX = '<b><span style="color:#DDDD33;">'
 WAVE_SUB_SUFFIX = '</b> Wave Height (ft)'
 
-#for b in BUOY_TITLES:
-#    subplot_title += f'{WAVE_SUBLOT_PREFIX}{b}{WAVE_SUBLOT_SUFFIX}, {WINDSPEED_TITLE}, '
-subplot_titles=(f'{WAVE_SUB_PREFIX}Ludington{WAVE_SUB_SUFFIX}', WINDSPEED_TITLE,
-                    f'{WAVE_SUB_PREFIX}Muskegon{WAVE_SUB_SUFFIX}', WINDSPEED_TITLE,
-                    f'{WAVE_SUB_PREFIX}Holland{WAVE_SUB_SUFFIX}', WINDSPEED_TITLE,
-                    f'{WAVE_SUB_PREFIX}South Haven{WAVE_SUB_SUFFIX}', WINDSPEED_TITLE,
-                    f'{WAVE_SUB_PREFIX}Central LM<{WAVE_SUB_SUFFIX}', WINDSPEED_TITLE,
-                    f'{WAVE_SUB_PREFIX}South LM{WAVE_SUB_SUFFIX}', WINDSPEED_TITLE)
+titles=[]
+for b in BUOY_TITLES:
+    this_title = f'{WAVE_SUB_PREFIX}{b}{WAVE_SUB_SUFFIX}'
+    titles.append(this_title)
+    titles.append(WINDSPEED_TITLE)
+
+subplot_titles = tuple(titles)
+
 fig = make_subplots(
     rows=6, cols=2,
     shared_xaxes=True,
     vertical_spacing=0.05,
     horizontal_spacing=0.04,
     row_heights=[0.25,0.25,0.25,0.25,0.25,0.25],
-    subplot_titles=(subplot_titles))
+    subplot_titles=subplot_titles)
 for i, buoy in enumerate(BUOY_IDS):
     row = i + 1
     fig.add_trace(go.Scatter(x=new_buoy_data[buoy].index, y=new_buoy_data[buoy]['WVHT'], name=BUOY_TITLES[i], line=wave_line_dict), row=row, col=1)
