@@ -37,6 +37,11 @@ CMAN_DICT = {'LDTM4': {'title': 'Ludington', 'row': 2},
             'SVNM4': {'title': 'South Haven', 'row': 8},
              }
 
+STYLE_DICT = {'GST': {'line': dict(color='white', width=0), 'marker': dict(color='white', size=3)},
+              'WVHT': {'line': dict(color='#00CCCC', width=3), 'marker': dict(color='#00CCCC', size=3)},
+              'WSPD': {'line': dict(color='gray', width=3), 'marker': dict(color='gray', size=0)}
+              }
+
 new_buoy_data = {}
 
 BUOY_IDS = list(BUOY_DICT.keys())
@@ -102,13 +107,14 @@ def layout():
             dbc.Row(dbc.Col(dcc.Graph(id='graph', figure=fig))),
             dcc.Interval(
                 id='interval',
-                interval=60 * 1000,  # in milliseconds
+                interval=3 * 60 * 1000,  # in milliseconds
                 n_intervals=0,
                 max_intervals=-1)
         ]),
 
     ])
-
+now = datetime.utcnow()
+start = now - timedelta(hours=3)
 marker_dict = dict(color='white', size=3)
 #y = list(this_df['GST'])
 #marker_dict = dict(list(map(set_color, y)))
@@ -145,9 +151,13 @@ fig.update_yaxes(range=[0, 5])
 fig.update_yaxes(showline=True, linewidth=1, linecolor='gray', mirror=True)
 fig.update_layout(showlegend=False)
 
-elements = ['WSPD','GST']
+elements = ['WSPD']
 for buoy, element in itertools.product(BUOY_IDS, elements):
     fig.add_trace(go.Scatter(x=new_buoy_data[buoy].index, y=new_buoy_data[buoy][element], name=BUOY_DICT[buoy]['title'], line=wind_line_dict), row=BUOY_DICT[buoy]['row'], col=2)
+
+    elements = ['GST']
+    for buoy, element in itertools.product(BUOY_IDS, elements):
+        fig.add_trace(go.Scatter(x=new_buoy_data[buoy].index, y=new_buoy_data[buoy][element], mode='markers', name=BUOY_DICT[buoy]['title'], line=STYLE_DICT[element]['line']), row=BUOY_DICT[buoy]['row'], col=2)
 
 fig.update_xaxes(range=[start, now])
 #fig.update_yaxes(range=[0, max_speed])
@@ -171,8 +181,8 @@ fig.update_layout(template='plotly_dark')
 #fig2.update_layout(template='plotly_dark')
 #wave_range = dict(range=[0,max_wave])
 
-wind_range = dict(range=[0, 15])
-wave_range = dict(range=[0,5])
+wind_range = dict(range=[0, max_speed])
+wave_range = dict(range=[0,max_wave])
 #fig.update_layout(height=800, width=600, title_text="Wave Height (ft)")
 fig.update_layout(yaxis1 = wave_range)
 fig.update_layout(yaxis2 = wind_range)

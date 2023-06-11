@@ -1,50 +1,15 @@
 """
 This gets the buoy data from the NDBC website
 """
-from dataclasses import dataclass
 from datetime import datetime, timedelta
-from pathlib import Path
 import pandas as pd
 
+from config import DATA_DIRECTORY as DEST_DATA_DIRECTORY
+from config import BUOY_DICT, METERS_PER_SECOND_TO_KNOTS, METERS_TO_FEET
 
-
-DEST_DATA_DIRECTORY = '/home/tjturnage/multipage/data'
-if 'pyany' in Path().absolute().parts:
-    DEST_DATA_DIRECTORY = 'C:/data/scripts/pyany/data'
-
-ELEMENT_NAMES = ['WDIR','WSPD','WGST','WVHT']
-ELEMENT_DICT = {'WDIR': 0, 'WSPD': 1, 'WGST': 2, 'WVHT': 3}
-METERS_PER_SECOND_TO_KNOTS = 1.94384
-METERS_TO_FEET = 3.280
 BASE_URL = 'https://www.ndbc.noaa.gov/data/realtime2'
 
-BUOY_NAMES = {'45024': 'Ludington Buoy',
-        'LDTM4': 'Ludington',
-        '45161': 'Muskegon Buoy',
-        'MKGM4': 'Muskegon',
-        '45029': 'Holland Buoy',
-        'HLNM4': 'Holland',
-        '45168': 'South Haven Buoy',
-        'SVNM4': 'South Haven',
-        '45210': 'Central LM',
-        '45007': 'LM South Buoy'
-}
-
-BUOY_IDS = list(BUOY_NAMES.keys())
-
-@dataclass
-class BuoyDataFrames:
-    df_45024: pd.DataFrame
-    df_ldtm4: pd.DataFrame
-    df_45161: pd.DataFrame
-    df_mkgm4: pd.DataFrame
-    df_45029: pd.DataFrame
-    df_hlnm4: pd.DataFrame
-    df_45168: pd.DataFrame
-    df_svnm4: pd.DataFrame
-    df_45210: pd.DataFrame
-    df_45007: pd.DataFrame
-
+BUOY_IDS = list(BUOY_DICT.keys())
 
 class BuoyData():
 
@@ -70,12 +35,11 @@ class BuoyData():
             '45210': self.df_45210,
             '45007': self.df_45007
             }
-        self.max_height, self.max_speed = 0,0
-        self.upper_height, self.upper_speed = 0,0
         self.now = datetime.utcnow()
         self.start = self.now - timedelta(hours=3)
         self.update_buoy_dict()
-        
+    
+    
     def update_buoy_dict(self):
         """_summary_
         """
