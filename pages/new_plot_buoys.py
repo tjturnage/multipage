@@ -13,81 +13,11 @@ from plotly.subplots import make_subplots
 import pandas as pd
 #from . import ids
 #from .side_bar import sidebar
+from config import BUOY_DICT, CMAN_DICT, STYLE_DICT, BUOY_IDS, BUOY_TITLES
+from config import METERS_PER_SECOND_TO_KNOTS, METERS_TO_FEET
+from config import DATA_DIRECTORY
+from config import update_buoys, update_times
 
-
-SOURCE_DATA_DIRECTORY = '/home/tjturnage/multipage/data'
-if 'pyany' in Path().absolute().parts:
-    SOURCE_DATA_DIRECTORY = 'C:/data/scripts/pyany/data'
-
-opac = 0.85
-lw = 1.5
-BUOY_DICT = {'45024': {'title': 'Ludington Buoy', 'color': f'rgba(255, 255, 255, {opac})', 'line_width': lw},           
-         '45161': {'title': 'Muskegon Buoy', 'color': f'rgba(200, 200, 255, {opac})', 'line_width': lw},
-         '45029': {'title': 'Holland Buoy', 'color': f'rgba(150, 150, 255, {opac})', 'line_width': lw},
-         '45168': {'title': 'South Haven Buoy', 'color': f'rgba(112, 112, 255, {opac})', 'line_width': lw},
-         '45210': {'title': 'Central LM', 'color': f'rgba(80, 80, 255, {opac})', 'line_width': lw},
-         '45007': {'title': 'LM South Buoy', 'color': f'rgba(30, 30, 255, {opac})', 'line_width': lw}
-         }
-
-CMAN_DICT = {'LDTM4': {'title': 'Ludington'},
-            'MKGM4': {'title': 'Muskegon'},
-            'HLNM4': {'title': 'Holland'},
-            'SVNM4': {'title': 'South Haven'},
-             }
-
-
-STYLE_DICT = {'GST': {'line': dict(width=0), 'marker': dict(size=2)},
-              'WVHT': {'line': dict(width=1), 'marker': dict(size=2)},
-              'WSPD': {'line': dict(width=1), 'marker': dict(size=0)}
-              }
-
-
-
-BUOY_IDS = list(BUOY_DICT.keys())
-BUOY_TITLES = []
-for key in BUOY_DICT:
-    BUOY_TITLES.append(BUOY_DICT[key]['title'])
-
-def update_times():
-    """
-    defines the x axis range based on the current time
-
-    Returns:
-        start_time: datetime object : xmin for graph
-    """
-    now = datetime.utcnow()
-    start_time = now - timedelta(hours=3)
-    end_time = now + timedelta(minutes=10)
-    return now, start_time, end_time
-
-def update_buoys():
-    """
-    creates a dictionary of dataframes by reading a csv file
-    for each buoy id in BUOY_IDS
-    """
-    this_new_buoy_data = {}
-    this_max_height = 0
-    this_max_speed = 0
-    this_min_height = 100
-    this_min_speed = 100
-    for buoy in BUOY_IDS:
-        this_buoy_dataframe = None
-        this_source = f'{SOURCE_DATA_DIRECTORY}/{buoy}.csv'
-        this_buoy_dataframe = pd.read_csv(this_source, parse_dates=['dts'], index_col='dts')
-        this_max_height = max(this_max_height, this_buoy_dataframe['WVHT'].max())
-        this_max_speed = max(this_max_speed, this_buoy_dataframe['GST'].max())
-        this_min_height = min(this_min_height, this_buoy_dataframe['WVHT'].min())
-        this_min_speed = min(this_min_speed, this_buoy_dataframe['GST'].min())
-        this_new_buoy_data[buoy] = this_buoy_dataframe
-    
-    this_max_wave = this_max_height
-    this_min_wave = this_min_height - 1
-    final_min_wave = max(this_min_wave, 0)
-    new_max_speed = this_max_speed + 5 - (this_max_speed % 5)
-    new_min_speed = this_min_speed - 5 + (this_min_speed % 5)
-    final_min_speed = max(new_min_speed, 0)
-
-    return this_new_buoy_data, this_max_wave, final_min_wave, new_max_speed, final_min_speed
 
 dash.register_page(__name__,
     path='/buoys3',
@@ -118,7 +48,7 @@ def layout():
 
 @dash.callback(Output('update-time', 'children'),
           Input('interval', 'n_intervals'))
-def update_time(n):
+def get_current_time(n):
     return f'Updated:  {datetime.utcnow().strftime(" %H:%M UTC -- %b %d, %Y")}'
 
 @dash.callback(Output('layout-graph', 'figure'),
@@ -143,9 +73,9 @@ def update_graph(n):
         this_line_dict['width'] = BUOY_DICT[buoy]['line_width']
         this_line_dict['dash'] = 'solid'
         if element == 'WVHT':
-            fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, line=this_line_dict, hovertemplate = '%{y:.2f} ft'), row=1, col=1)   
+            fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, text=buoy_title, line=this_line_dict, hovertemplate = '%{y:.2f} ft'), row=1, col=1)   
         if element == 'WSPD':
-            fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, line=this_line_dict, hovertemplate = '%{y:.0f} kt'), row=2, col=1)
+            fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, text=buoy_title, line=this_line_dict, hovertemplate = '%{y:.0f} kt'), row=2, col=1)
         if element == 'GST':
             this_marker_dict=dict(color=buoy_color, size=5*BUOY_DICT[buoy]['line_width'])
             fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, mode="markers", marker=this_marker_dict, hovertemplate='G %{y:.0f} kt'), row=2, col=1)
@@ -188,5 +118,6 @@ def update_graph(n):
     #fig.add_hline(y=22, line=dict(dash="solid", width=2, color=danger), row=2, col=1)
     fig.add_vline(x=now, line=dict(dash="solid", width=2, color='white'), row=1, col=1)
     fig.add_vline(x=now, line=dict(dash="solid", width=2, color='white'), row=2, col=1)
+    fig.update_traces(textposition='top right')
     return fig
 
