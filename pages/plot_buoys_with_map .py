@@ -1,28 +1,30 @@
 """
 This runs the buoys plot
 """
-#from pathlib import Path
-from datetime import datetime, timedelta
-from pathlib import Path
+from datetime import datetime
 import itertools
+import pandas as pd
 import dash
 from dash import html, dcc, Input, Output
 import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
+import plotly.figure_factory as pff
+import plotly.express as px
 from plotly.subplots import make_subplots
-import pandas as pd
-#from . import ids
-#from .side_bar import sidebar
-
 from config import BUOY_DICT, SUBPLOT_TITLES, BUOY_IDS
 from config import update_buoys, update_times
 
+from urllib.request import urlopen
+import json
+
+with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
+    counties = json.load(response)
 
 dash.register_page(__name__,
-    path='/buoys',
-    title='Buoys',
-    name='Buoys',
-    order=9)
+    path='/buoymap',
+    title='Buoy Map',
+    name='Buoy Map',
+    order=8)
 
 
 def layout():
@@ -31,28 +33,53 @@ def layout():
     Returns:
         _type_: _description_
     """
-    return html.Div([
+    return html.Div(
         dbc.Container([
-            dbc.Row(dbc.Col(html.H2("Buoy Observations"))),
-            dbc.Row(dbc.Col(html.H5(id='each-time'))),
-            dbc.Row(dbc.Col(dcc.Graph(id='each-graph'))),
-            dcc.Interval(
-                id='each-interval',
-                interval=10 * 60 * 1000,  # in milliseconds
-                n_intervals=0,
-                max_intervals=-1)
-        ]),
+            dbc.Row([
+                dbc.Col([                
+                    dbc.Row(dbc.Col(html.H2("Buoy Observations"))),
+                    dbc.Row(dbc.Col(html.H5(id='series-time'))),
+                    dbc.Row(dbc.Col(dcc.Graph(id='series-graph'))),
+                    dcc.Interval(
+                        id='map-interval',
+                        interval=5 * 60 * 1000,  # in milliseconds
+                        n_intervals=0,
+                        max_intervals=-1)
+                ]),
+                dbc.Col([
+                    dbc.Row(dbc.Col(html.H2("Buoy Observations"))),
+                    dbc.Row(dbc.Col(html.H5(id='map-time'))),
+                    dbc.Row(dbc.Col(dcc.Graph(figure={},id='map-graph'))),
+                    ]),
+                ])
+            ])
+        )
+    
 
-    ])
-
-@dash.callback(Output('each-time', 'children'),
-          Input('each-interval', 'n_intervals'))
-def get_current_time(n):
+@dash.callback(Output(component_id = 'series-time', component_property = 'children'),
+          Input(component_id = 'map-interval', component_property = 'n_intervals'))
+def get_current_time(_n):
+    """
+    Returns the current time in UTC
+    Args:
+        n: int : interval input that activates callback
+        
+    Returns:
+        datetime string
+    """
     return f'Updated:  {datetime.utcnow().strftime(" %H:%M UTC -- %b %d, %Y")}'
 
-@dash.callback(Output('each-graph', 'figure'),
-          Input('each-interval', 'n_intervals'))
-def update_graph(n):
+@dash.callback(Output('series-graph', 'figure'),
+          Input('map-interval', 'n_intervals'))
+def update_series_plots(_n):
+    """_summary_
+
+    Args:
+        n: int : interval input that activates callback (unused)
+
+    Returns:
+        fig: figure
+    """
     now,start_time,end_time = update_times()
     new_buoy_data, max_wave, min_wave, max_speed, min_speed = update_buoys()
     fig = make_subplots(
@@ -76,9 +103,17 @@ def update_graph(n):
         if element == 'WVHT':
             fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, text=buoy_title, line=this_line_dict, hovertemplate = '%{y:.2f} ft'), row=row, col=1)   
         if element == 'WSPD':
-            fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, text=buoy_title, line=this_line_dict, hovertemplate = '%{y:.0f} kt'), row=row, col=2)
+            this_marker_dict=dict(color=this_line_dict['color'], size=7)
+            #fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, text=buoy_title, line=this_line_dict, hovertemplate = '%{y:.0f} kt'), row=row, col=2)
+            fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, mode="markers", marker=this_marker_dict, hovertemplate = '%{y:.0f} kt'), row=row, col=2)
+            #a = list(buoy_dataframe.index)
+            #b = list(buoy_dataframe['WSPD'])
+            #for c, d in zip(a, b):
+            #    fig.add_annotation(x=c, y=d, text="->", showarrow=True), row=row, col=2)
         if element == 'GST':
-            this_marker_dict=dict(color=this_line_dict['color'], size=2*this_line_dict['width'])
+            grayish = "rgba(215, 215, 215, 1)"
+            this_line_dict['color'] = grayish
+            this_marker_dict=dict(color=this_line_dict['color'], size=4)
             fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, mode="markers", marker=this_marker_dict, hovertemplate='G %{y:.0f} kt'), row=row, col=2)
     fig.update_xaxes(range=[start_time, end_time])
     fig.update_xaxes(showline=True, linewidth=1, linecolor='gray', mirror=True)
@@ -96,8 +131,7 @@ def update_graph(n):
         pad=6
         )
     )
-    caution = 'rgba(255, 255, 100, 0.7)'
-    danger = 'rgba(255, 10, 100, 0.7)'
+
     fig.update_layout(template='plotly_dark')
     wind_range = dict(range=[min_speed, max_speed])
     wave_range = dict(range=[min_wave, max_wave])
@@ -111,6 +145,7 @@ def update_graph(n):
     greenish = "rgba(10, 85, 10, 1)"
     yellowish = "rgba(130, 130, 0, 1)"
     reddish = "rgba(130, 0, 0, 1)"
+
     for r in range(1,7):
         fig.add_hrect(y0=min_wave, y1=3, fillcolor=greenish, line_width=0, row=r, col=1)
         fig.add_hrect(y0=3, y1=4, fillcolor=yellowish, line_width=0, row=r, col=1)
@@ -145,4 +180,30 @@ def update_graph(n):
     fig.update_traces(textposition='top right')
     fig.update_shapes(layer="below")
     return fig
+
+@dash.callback(Output('map-graph', 'figure'),
+          Input('map-interval', 'n_intervals'))
+def update_map(_n):
+    """_summary_
+
+    Args:
+        n: int : interval input that activates callback (unused)
+
+    Returns:
+        fig: figure
+    """
+
+    df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/fips-unemp-16.csv",
+                    dtype={"fips": str})
+
+
+
+    fig2 = px.choropleth(df, geojson=counties, locations='fips', color='unemp',
+                            color_continuous_scale="Viridis",
+                            range_color=(0, 12),
+                            scope="usa",
+                            labels={'unemp':'unemployment rate'}
+                            )
+    fig2.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+    return fig2
 

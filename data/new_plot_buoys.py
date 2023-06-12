@@ -2,15 +2,13 @@
 This runs the buoys plot
 """
 #from pathlib import Path
-from datetime import datetime, timedelta
-from pathlib import Path
+from datetime import datetime
 import itertools
 import dash
 from dash import html, dcc, Input, Output
 import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import pandas as pd
 #from . import ids
 #from .side_bar import sidebar
 from config import BUOY_DICT, CMAN_DICT, STYLE_DICT, BUOY_IDS, BUOY_TITLES
