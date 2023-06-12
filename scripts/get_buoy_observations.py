@@ -36,7 +36,7 @@ class BuoyData():
             '45007': self.df_45007
             }
         self.now = datetime.utcnow()
-        self.start = self.now - timedelta(hours=3)
+        self.start = self.now - timedelta(hours=4)
         self.update_buoy_dict()
     
     
@@ -57,10 +57,10 @@ class BuoyData():
             this_df['WSPD'] = this_df['WSPD'] * METERS_PER_SECOND_TO_KNOTS
             this_df['GST'] = this_df['GST'] * METERS_PER_SECOND_TO_KNOTS
             this_df['WVHT'] = this_df['WVHT'] * METERS_TO_FEET
-            #short_df = this_df.loc[this_df['dts'] > start]
+            short_df = this_df.loc[this_df['dts'] > self.start]
 
             destination = f'{DEST_DATA_DIRECTORY}/{buoy}.csv'  
-            this_df.to_csv(destination, index=False)
+            short_df.to_csv(destination, index=False)
 
         return
 

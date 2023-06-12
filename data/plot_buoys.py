@@ -80,22 +80,25 @@ def start_buoys(n):
 new_buoy_data = {}
 max_height = 0
 max_speed = 0
+min_height = 100
+min_speed = 100
 for buoy in BUOY_IDS:
     buoy_dataframe = None
     source = f'{SOURCE_DATA_DIRECTORY}/{buoy}.csv'
     buoy_dataframe = pd.read_csv(source, parse_dates=['dts'], index_col='dts')
     max_height = max(max_height, buoy_dataframe['WVHT'].max())
     max_speed = max(max_speed, buoy_dataframe['GST'].max())
+    min_height = min(min_height, buoy_dataframe['WVHT'].min())
+    min_speed = min(min_speed, buoy_dataframe['GST'].min())
     new_buoy_data[buoy] = buoy_dataframe
-if max_height > 15:
-    max_wave = 20
-elif max_height > 10:
-    max_wave = 15
-elif max_height > 5:
-    max_wave = 10
-else:
-    max_wave = 5
 
+#max_height = max(max_height, buoy_dataframe['WVHT'].max())
+#max_speed = max(max_speed, buoy_dataframe['GST'].max())
+#min_height = min(min_height, buoy_dataframe['WVHT'].min())
+#min_speed = min(min_speed, buoy_dataframe['GST'].min())
+max_wave = max_height + 2 - (max_height % 2)
+#min_wave = min_height - 2 - (min_height % 2)
+min_wave = max(min_height - 1 , 0)
 #print(new_buoy_data)
 
 #@app.callback(Output('graph', 'figure'),
@@ -141,13 +144,16 @@ fig = make_subplots(
     horizontal_spacing=0.04,
     row_heights=[0.25,0.25,0.25,0.25,0.25,0.25],
     subplot_titles=subplot_titles)
+fig.add_hline(y=4, line_dash="dash", row="all", col="all",
+              line_color="red", annotation_text="Jan 1, 2018 baseline", 
+              annotation_position="bottom right")
 for i, buoy in enumerate(BUOY_IDS):
     row = i + 1
     fig.add_trace(go.Scatter(x=new_buoy_data[buoy].index, y=new_buoy_data[buoy]['WVHT'], name=BUOY_TITLES[i], line=wave_line_dict), row=row, col=1)
 
 fig.update_xaxes(range=[start, now])
-#fig.update_yaxes(range=[0, max_wave])
-fig.update_yaxes(range=[0, 5])
+fig.update_yaxes(range=[0, max_wave])
+#fig.update_yaxes(range=[0, 5])
 fig.update_yaxes(showline=True, linewidth=1, linecolor='gray', mirror=True)
 fig.update_layout(showlegend=False)
 
@@ -198,6 +204,12 @@ fig.update_layout(yaxis11 = wave_range)
 fig.update_layout(yaxis12 = wind_range)
 fig.update_layout(hovermode="x unified")
 fig.update_layout(title_x=0.01)
+fig.add_hline(y=4, line_dash="dot", line_width=1, line=dict(color='rgba(255, 100, 100, 0.7)'), row="all", col=1)
+              #line_color="#ee3333")#, annotation_text="SCA", 
+              #annotation_position="bottom right")
+fig.add_hline(y=18, line_dash="dot", line_width=1, line=dict(color='rgba(255, 255, 100, 0.7)'), row="all", col=2)
+              #line_color="#ee3333")#, annotation_text="SCA", 
+              #annotation_position="bottom right")
 
 @app.callback(Output('graph', 'figure'),
               Input('interval-component', 'n_intervals'))
@@ -208,19 +220,20 @@ def update_buoys(n):
     new_buoy_data = {}
     max_height = 0
     max_speed = 0
+    min_height = 100
+    min_speed = 100
     for buoy in BUOY_IDS:
         buoy_dataframe = None
         source = f'{SOURCE_DATA_DIRECTORY}/{buoy}.csv'
         buoy_dataframe = pd.read_csv(source, parse_dates=['dts'], index_col='dts')
         max_height = max(max_height, buoy_dataframe['WVHT'].max())
         max_speed = max(max_speed, buoy_dataframe['GST'].max())
+        min_height = min(min_height, buoy_dataframe['WVHT'].min())
+        min_speed = min(min_speed, buoy_dataframe['GST'].min())
         new_buoy_data[buoy] = buoy_dataframe
-    if max_height > 15:
-        max_wave = 20
-    elif max_height > 10:
-        max_wave = 15
-    elif max_height > 5:
-        max_wave = 10
-    else:
-        max_wave = 5
-    return new_buoy_data, max_wave, max_speed
+    
+    max_wave = max_height + 2 - (max_height % 2)
+    #min_wave = min_height - 2 - (min_height % 2)
+    min_wave = max(min_height -1 , 0)
+
+    return new_buoy_data, max_wave, min_wave, max_speed
