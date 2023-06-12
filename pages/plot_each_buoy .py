@@ -19,9 +19,9 @@ from config import update_buoys, update_times
 
 
 dash.register_page(__name__,
-    path='/buoys4',
-    title='Separate Buoys',
-    name='Separate Buoys',
+    path='/buoys',
+    title='Buoys',
+    name='Buoys',
     order=9)
 
 
@@ -67,7 +67,7 @@ def update_graph(n):
         buoy_dataframe = new_buoy_data[buoy]
         buoy_element = buoy_dataframe[element]
         buoy_title = BUOY_DICT[buoy]['title']
-        buoy_color = BUOY_DICT[buoy]['color']
+        #buoy_color = BUOY_DICT[buoy]['color']
         row = BUOY_DICT[buoy]['row']
         this_line_dict = {}
         this_line_dict['color'] = 'rgba(255, 255, 255, 1)'
