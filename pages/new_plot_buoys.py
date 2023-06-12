@@ -147,7 +147,7 @@ def update_graph(n):
         if element == 'WSPD':
             fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, line=this_line_dict, hovertemplate = '%{y:.0f} kt'), row=2, col=1)
         if element == 'GST':
-            this_marker_dict=dict(color=buoy_color, size=3*BUOY_DICT[buoy]['line_width'])
+            this_marker_dict=dict(color=buoy_color, size=5*BUOY_DICT[buoy]['line_width'])
             fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, mode="markers", marker=this_marker_dict, hovertemplate='G %{y:.0f} kt'), row=2, col=1)
     fig.update_xaxes(range=[start_time, end_time])
     fig.update_xaxes(showline=True, linewidth=1, linecolor='gray', mirror=True)
@@ -174,9 +174,18 @@ def update_graph(n):
     fig.update_layout(yaxis2 = wind_range)
     fig.update_layout(hovermode="x unified")
     fig.update_layout(title_x=0.08)
-    fig.add_hline(y=4, line=dict(dash="solid", width=2, color=danger), row=1, col=1)
-    fig.add_hline(y=18, line=dict(dash="solid", width=2, color=caution), row=2, col=1)
-    fig.add_hline(y=22, line=dict(dash="solid", width=2, color=danger), row=2, col=1)
+    #fig.add_hline(y=4, line=dict(dash="solid", width=2, color=danger), row=1, col=1)
+    #fig.add_hline(y=18, line=dict(dash="solid", width=2, color=caution), row=2, col=1)
+    fig.add_hrect(y0=min_wave, y1=3, fillcolor="green", opacity=0.10, line_width=0, row=1, col=1)
+    fig.add_hrect(y0=3, y1=4, fillcolor="yellow", opacity=0.10, line_width=0, row=1, col=1)
+    fig.add_hrect(y0=4, y1=6, fillcolor="red", opacity=0.10, line_width=0, row=1, col=1)
+    fig.add_hrect(y0=6, y1=20, fillcolor="pink", opacity=0.20, line_width=0, row=1, col=1)
+    
+    fig.add_hrect(y0=min_speed, y1=18, fillcolor="green", opacity=0.10, line_width=0, row=2, col=1)
+    fig.add_hrect(y0=18, y1=22, fillcolor="yellow", opacity=0.10, line_width=0, row=2, col=1)
+    fig.add_hrect(y0=22, y1=33, fillcolor="red", opacity=0.10, line_width=0, row=2, col=1)
+    fig.add_hrect(y0=33, y1=40, fillcolor="pink", opacity=0.20, line_width=0, row=2, col=1)
+    #fig.add_hline(y=22, line=dict(dash="solid", width=2, color=danger), row=2, col=1)
     fig.add_vline(x=now, line=dict(dash="solid", width=2, color='white'), row=1, col=1)
     fig.add_vline(x=now, line=dict(dash="solid", width=2, color='white'), row=2, col=1)
     return fig
