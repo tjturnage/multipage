@@ -144,51 +144,39 @@ fig = make_subplots(
     horizontal_spacing=0.04,
     row_heights=[0.25,0.25,0.25,0.25,0.25,0.25],
     subplot_titles=subplot_titles)
-fig.add_hline(y=4, line_dash="dash", row="all", col="all",
-              line_color="red", annotation_text="Jan 1, 2018 baseline", 
-              annotation_position="bottom right")
-for i, buoy in enumerate(BUOY_IDS):
-    row = i + 1
-    fig.add_trace(go.Scatter(x=new_buoy_data[buoy].index, y=new_buoy_data[buoy]['WVHT'], name=BUOY_TITLES[i], line=wave_line_dict), row=row, col=1)
-
-fig.update_xaxes(range=[start, now])
-fig.update_yaxes(range=[0, max_wave])
-#fig.update_yaxes(range=[0, 5])
-fig.update_yaxes(showline=True, linewidth=1, linecolor='gray', mirror=True)
-fig.update_layout(showlegend=False)
-
-elements = ['WSPD']
-for buoy, element in itertools.product(BUOY_IDS, elements):
-    fig.add_trace(go.Scatter(x=new_buoy_data[buoy].index, y=new_buoy_data[buoy][element], name=BUOY_DICT[buoy]['title'], line=wind_line_dict), row=BUOY_DICT[buoy]['row'], col=2)
-
-    elements = ['GST']
     for buoy, element in itertools.product(BUOY_IDS, elements):
-        fig.add_trace(go.Scatter(x=new_buoy_data[buoy].index, y=new_buoy_data[buoy][element], mode='markers', name=BUOY_DICT[buoy]['title'], line=STYLE_DICT[element]['line']), row=BUOY_DICT[buoy]['row'], col=2)
-
-fig.update_xaxes(range=[start, now])
-#fig.update_yaxes(range=[0, max_speed])
-fig.update_yaxes(range=[0, 15])
-fig.update_xaxes(showline=True, linewidth=1, linecolor='gray', mirror=True)
-fig.update_layout(showlegend=False)
-fig.update_layout(
-    autosize=False,
-    width=1200,
-    height=800,
-    margin=dict(
-        l=10,
-        r=10,
+        buoy_dataframe = new_buoy_data[buoy]
+        buoy_element = buoy_dataframe[element]
+        buoy_title = BUOY_DICT[buoy]['title']
+        buoy_color = BUOY_DICT[buoy]['color']
+        this_line_dict = {}
+        this_line_dict['color'] = BUOY_DICT[buoy]['color']
+        this_line_dict['width'] = BUOY_DICT[buoy]['line_width']
+        this_line_dict['dash'] = 'solid'
+        if element == 'WVHT':
+            fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, text=buoy_title, line=this_line_dict, hovertemplate = '%{y:.2f} ft'), row=1, col=1)   
+        if element == 'WSPD':
+            fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, text=buoy_title, line=this_line_dict, hovertemplate = '%{y:.0f} kt'), row=2, col=1)
+        if element == 'GST':
+            this_marker_dict=dict(color=buoy_color, size=5*BUOY_DICT[buoy]['line_width'])
+            fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, mode="markers", marker=this_marker_dict, hovertemplate='G %{y:.0f} kt'), row=2, col=1)
+    fig.update_xaxes(range=[start_time, end_time])
+    fig.update_xaxes(showline=True, linewidth=1, linecolor='gray', mirror=True)
+    fig.update_yaxes(showline=True, linewidth=1, linecolor='gray', mirror=True)
+    fig.update_layout(showlegend=False)
+    fig.update_layout(
+        autosize=False,
+        width=1200,
+        height=800,
+        margin=dict(
+        l=15,
+        r=15,
         b=10,
-        t=40,
-        pad=4
+        t=50,
+        pad=6
+        )
     )
-)
 
-fig.update_layout(template='plotly_dark')
-#fig2.update_layout(template='plotly_dark')
-#wave_range = dict(range=[0,max_wave])
-
-wind_range = dict(range=[0, max_speed])
-wave_range = dict(range=[0,max_wave])
 #fig.update_layout(height=800, width=600, title_text="Wave Height (ft)")
 fig.update_layout(yaxis1 = wave_range)
 fig.update_layout(yaxis2 = wind_range)
