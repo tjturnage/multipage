@@ -124,23 +124,32 @@ def update_graph(_n):
 
     #fig.add_hline(y=4, line=dict(dash="solid", width=2, color=danger), row=1, col=1)
     #fig.add_hline(y=18, line=dict(dash="solid", width=2, color=caution), row=2, col=1)
-    greenish = "rgba(10, 85, 10, 1)"
-    yellowish = "rgba(130, 130, 0, 1)"
-    reddish = "rgba(130, 0, 0, 1)"
+    """_summary_
+green is 21 knots or less and waves less than 3.5 feet
+yellow is 22-33 knots and waves 3.5 feet or greater
+gale is orange and winds of 34 to 47 knots
+storm is red and 48 knots to 63 knots
 
-    for r in range(1,7):
-        fig.add_hrect(y0=min_wave, y1=3, fillcolor=greenish, line_width=0, row=r, col=1)
-        fig.add_hrect(y0=3, y1=4, fillcolor=yellowish, line_width=0, row=r, col=1)
-        fig.add_hrect(y0=4, y1=6, fillcolor=reddish, line_width=0, row=r, col=1)
-        fig.add_hrect(y0=6, y1=20, fillcolor="pink", line_width=0, row=r, col=1)
+    """
     
-        fig.add_hrect(y0=min_speed, y1=min(max_speed,18), fillcolor=greenish, line_width=0, row=r, col=2)
-        if max_speed > 18:
-            fig.add_hrect(y0=18, y1=min(max_speed,22), fillcolor=yellowish, line_width=0, row=r, col=2)
-        if max_speed > 22:
-            fig.add_hrect(y0=22, y1=min(max_speed,33), fillcolor=reddish, line_width=0, row=r, col=2)
-        if max_speed > 33:
-            fig.add_hrect(y0=33, y1=min(max_speed,45), fillcolor="pink", opacity=1, line_width=0, row=r, col=2)
+    greenish = "rgba(0, 128, 0, 1)"
+    yellowish = "rgba(180, 180, 0, 1)"
+    orangish = "rgba(255, 119, 0, 1)"
+    reddish = "rgba(200, 0, 0, 1)"
+    speed_yellow = [22,33.5] # SCA
+    speed_orange = [33.5,47.5] # Gale
+    speed_red = [47.5,60] # storm
+    for r in range(1,7):
+        fig.add_hrect(y0=min_wave, y1=3.5, fillcolor=greenish, line_width=0, row=r, col=1)
+        fig.add_hrect(y0=3.5, y1=100, fillcolor=yellowish, line_width=0, row=r, col=1)
+    
+        fig.add_hrect(y0=min_speed, y1=min(max_speed,21.5), fillcolor=greenish, line_width=0, row=r, col=2)
+        if max_speed > 21.5:
+            fig.add_hrect(y0=21.5, y1=min(max_speed,33.5), fillcolor=yellowish, line_width=0, row=r, col=2)
+        if max_speed > 33.5:
+            fig.add_hrect(y0=33.5, y1=min(max_speed,47.5), fillcolor=orangish, line_width=0, row=r, col=2)
+        if max_speed > 47.5:
+            fig.add_hrect(y0=47.5, y1=min(max_speed,63), fillcolor="pink", opacity=1, line_width=0, row=r, col=2)
     #fig.add_hline(y=22, line=dict(dash="solid", width=2, color=danger), row=2, col=1)
         fig.add_vline(x=now, line=dict(dash="solid", width=2, color='white'), row=r, col=1)
         fig.add_vline(x=now, line=dict(dash="solid", width=2, color='white'), row=r, col=2)
