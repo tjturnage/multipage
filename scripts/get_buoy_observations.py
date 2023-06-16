@@ -17,6 +17,7 @@ BUOY_DICT = {'45024': {'title': 'Ludington Buoy', 'color': f'rgba(255, 255, 255,
          '45161': {'title': 'Muskegon Buoy', 'color': f'rgba(200, 200, 255, {opac})', 'line_width': lw, 'row': 2},
          '45029': {'title': 'Holland Buoy', 'color': f'rgba(150, 150, 255, {opac})', 'line_width': lw, 'row': 3},
          '45168': {'title': 'South Haven Buoy', 'color': f'rgba(112, 112, 255, {opac})', 'line_width': lw, 'row': 4},
+         '45026': {'title': 'Cook Nuclear Plant Buoy', 'color': f'rgba(112, 112, 255, {opac})', 'line_width': lw, 'row': 5},
          '45210': {'title': 'Central LM', 'color': f'rgba(80, 80, 255, {opac})', 'line_width': lw, 'row': 5},
          '45007': {'title': 'LM South Buoy', 'color': f'rgba(30, 30, 255, {opac})', 'line_width': lw, 'row': 6}
          }
@@ -49,6 +50,7 @@ class BuoyData():
         self.df_hlnm4 = pd.DataFrame()
         self.df_45168 = pd.DataFrame()
         self.df_svnm4 = pd.DataFrame()
+        self.df_45026 = pd.DataFrame()
         self.df_45210 = pd.DataFrame()
         self.df_45007 = pd.DataFrame()
         self.buoy_data = {'45024': self.df_45024,
@@ -59,11 +61,12 @@ class BuoyData():
             'HLNM4': self.df_hlnm4,
             '45168': self.df_45168,
             'SVNM4': self.df_svnm4,
+            '45026': self.df_45026,
             '45210': self.df_45210,
             '45007': self.df_45007
             }
         self.now = datetime.utcnow()
-        self.start = self.now - timedelta(hours=4)
+        self.start = self.now - timedelta(hours=12)
         self.update_buoy_dict()
     
     

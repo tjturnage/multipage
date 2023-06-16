@@ -65,11 +65,11 @@ def update_graph(_n):
     now,start_time,end_time = update_times()
     new_buoy_data, max_wave, min_wave, max_speed, min_speed = update_buoys()
     fig = make_subplots(
-        rows=6, cols=2,
+        rows=7, cols=2,
         shared_xaxes=True,
         vertical_spacing=0.05,
         horizontal_spacing=0.03,
-        row_heights=[0.2,0.2,0.2,0.2,0.2,0.2],
+        row_heights=[0.2,0.2,0.2,0.2,0.2,0.2,0.2],
         subplot_titles=SUBPLOT_TITLES)
     elements = ['WVHT','WSPD','GST']
     for buoy, element in itertools.product(BUOY_IDS, elements):
@@ -86,12 +86,7 @@ def update_graph(_n):
             fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, text=buoy_title, line=this_line_dict, hovertemplate = '%{y:.2f} ft'), row=row, col=1)   
         if element == 'WSPD':
             this_marker_dict=dict(color=this_line_dict['color'], size=7)
-            #fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, text=buoy_title, line=this_line_dict, hovertemplate = '%{y:.0f} kt'), row=row, col=2)
             fig.add_trace(go.Scatter(x=buoy_dataframe.index, y=buoy_element, name=buoy_title, mode="markers", marker=this_marker_dict, hovertemplate = '%{y:.0f} kt'), row=row, col=2)
-            #a = list(buoy_dataframe.index)
-            #b = list(buoy_dataframe['WSPD'])
-            #for c, d in zip(a, b):
-            #    fig.add_annotation(x=c, y=d, text="->", showarrow=True), row=row, col=2)
         if element == 'GST':
             grayish = "rgba(215, 215, 215, 1)"
             this_line_dict['color'] = grayish
@@ -122,8 +117,6 @@ def update_graph(_n):
     fig.update_layout(hovermode="x unified")
     fig.update_layout(title_x=0.08)
 
-    #fig.add_hline(y=4, line=dict(dash="solid", width=2, color=danger), row=1, col=1)
-    #fig.add_hline(y=18, line=dict(dash="solid", width=2, color=caution), row=2, col=1)
     """_summary_
 green is 21 knots or less and waves less than 3.5 feet
 yellow is 22-33 knots and waves 3.5 feet or greater
@@ -135,11 +128,11 @@ storm is red and 48 knots to 63 knots
     greenish = "rgba(0, 128, 0, 1)"
     yellowish = "rgba(180, 180, 0, 1)"
     orangish = "rgba(255, 119, 0, 1)"
-    reddish = "rgba(200, 0, 0, 1)"
-    speed_yellow = [22,33.5] # SCA
-    speed_orange = [33.5,47.5] # Gale
-    speed_red = [47.5,60] # storm
-    for r in range(1,7):
+    #reddish = "rgba(200, 0, 0, 1)"
+    #speed_yellow = [22,33.5] # SCA
+    #speed_orange = [33.5,47.5] # Gale
+    #speed_red = [47.5,60] # storm
+    for r in range(1,8):
         fig.add_hrect(y0=min_wave, y1=3.5, fillcolor=greenish, line_width=0, row=r, col=1)
         fig.add_hrect(y0=3.5, y1=100, fillcolor=yellowish, line_width=0, row=r, col=1)
     
@@ -150,7 +143,6 @@ storm is red and 48 knots to 63 knots
             fig.add_hrect(y0=33.5, y1=min(max_speed,47.5), fillcolor=orangish, line_width=0, row=r, col=2)
         if max_speed > 47.5:
             fig.add_hrect(y0=47.5, y1=min(max_speed,63), fillcolor="pink", opacity=1, line_width=0, row=r, col=2)
-    #fig.add_hline(y=22, line=dict(dash="solid", width=2, color=danger), row=2, col=1)
         fig.add_vline(x=now, line=dict(dash="solid", width=2, color='white'), row=r, col=1)
         fig.add_vline(x=now, line=dict(dash="solid", width=2, color='white'), row=r, col=2)
 
@@ -168,6 +160,8 @@ storm is red and 48 knots to 63 knots
     fig.update_layout(yaxis10 = wind_range)
     fig.update_layout(yaxis11 = wave_range)
     fig.update_layout(yaxis12 = wind_range)
+    fig.update_layout(yaxis13 = wave_range)
+    fig.update_layout(yaxis14 = wind_range)
     fig.update_traces(textposition='top right')
     fig.update_shapes(layer="below")
     return fig

@@ -12,8 +12,9 @@ BUOY_DICT = {'45024': {'title': 'Ludington Buoy', 'color': f'rgba(255, 255, 255,
          '45161': {'title': 'Muskegon Buoy', 'color': f'rgba(200, 200, 255, {opac})', 'line_width': lw, 'row': 2},
          '45029': {'title': 'Holland Buoy', 'color': f'rgba(150, 150, 255, {opac})', 'line_width': lw, 'row': 3},
          '45168': {'title': 'South Haven Buoy', 'color': f'rgba(112, 112, 255, {opac})', 'line_width': lw, 'row': 4},
-         '45210': {'title': 'Central LM', 'color': f'rgba(80, 80, 255, {opac})', 'line_width': lw, 'row': 5},
-         '45007': {'title': 'LM South Buoy', 'color': f'rgba(30, 30, 255, {opac})', 'line_width': lw, 'row': 6}
+         '45026': {'title': 'Cook Nuclear Plant Buoy', 'color': f'rgba(112, 112, 255, {opac})', 'line_width': lw, 'row': 5},
+         '45210': {'title': 'Central LM', 'color': f'rgba(80, 80, 255, {opac})', 'line_width': lw, 'row': 6},
+         '45007': {'title': 'LM South Buoy', 'color': f'rgba(30, 30, 255, {opac})', 'line_width': lw, 'row': 7}
          }
 
 BUOY_IDS = list(BUOY_DICT.keys())
@@ -73,7 +74,7 @@ def update_buoys():
         this_min_speed = min(this_min_speed, this_buoy_dataframe['GST'].min())
         this_new_buoy_data[buoy] = this_buoy_dataframe
     
-    this_max_wave = this_max_height
+    this_max_wave = this_max_height + 1
     this_min_wave = this_min_height - 1
     final_min_wave = max(this_min_wave, 0)
     new_max_speed = this_max_speed + 5 - (this_max_speed % 5)
