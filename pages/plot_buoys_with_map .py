@@ -135,9 +135,10 @@ def update_series_plots(_n):
     fig.update_layout(hovermode="x unified")
     fig.update_layout(title_x=0.08)
 
-    greenish = "rgba(0, 128, 0, 1)"
-    yellowish = "rgba(180, 180, 0, 1)"
-    orangish = "rgba(255, 119, 0, 1)"
+    greenish = "rgba(0, 128, 0, 0.55)"
+    yellowish = "rgba(180, 180, 0, 0.45)"
+    orangish = "rgba(255, 119, 0, 0.5)"
+    reddish = "rgba(200, 0, 0, 0.5)"
     #reddish = "rgba(200, 0, 0, 1)"
     #speed_yellow = [22,33.5] # SCA
     #speed_orange = [33.5,47.5] # Gale

@@ -115,6 +115,7 @@ def update_graph(_n):
     fig.update_layout(yaxis1 = wave_range)
     fig.update_layout(yaxis2 = wind_range)
     fig.update_layout(hovermode="x unified")
+    fig.update_layout(hovermode="y unified")
     fig.update_layout(title_x=0.08)
 
     """_summary_
@@ -125,10 +126,10 @@ storm is red and 48 knots to 63 knots
 
     """
     
-    greenish = "rgba(0, 128, 0, 1)"
-    yellowish = "rgba(180, 180, 0, 1)"
-    orangish = "rgba(255, 119, 0, 1)"
-    #reddish = "rgba(200, 0, 0, 1)"
+    greenish = "rgba(0, 128, 0, 0.55)"
+    yellowish = "rgba(180, 180, 0, 0.45)"
+    orangish = "rgba(255, 119, 0, 0.5)"
+    reddish = "rgba(200, 0, 0, 0.5)"
     #speed_yellow = [22,33.5] # SCA
     #speed_orange = [33.5,47.5] # Gale
     #speed_red = [47.5,60] # storm
@@ -142,7 +143,7 @@ storm is red and 48 knots to 63 knots
         if max_speed > 33.5:
             fig.add_hrect(y0=33.5, y1=min(max_speed,47.5), fillcolor=orangish, line_width=0, row=r, col=2)
         if max_speed > 47.5:
-            fig.add_hrect(y0=47.5, y1=min(max_speed,63), fillcolor="pink", opacity=1, line_width=0, row=r, col=2)
+            fig.add_hrect(y0=47.5, y1=min(max_speed,63), fillcolor=reddish, opacity=1, line_width=0, row=r, col=2)
         fig.add_vline(x=now, line=dict(dash="solid", width=2, color='white'), row=r, col=1)
         fig.add_vline(x=now, line=dict(dash="solid", width=2, color='white'), row=r, col=2)
 
