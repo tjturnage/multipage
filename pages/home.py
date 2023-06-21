@@ -1,6 +1,6 @@
 # Import necessary libraries 
 import dash
-from dash import html
+from dash import html, dcc
 import dash_bootstrap_components as dbc
 
 dash.register_page(__name__, path='/',
@@ -19,183 +19,187 @@ top_content = [
 
 # Define the page layout
 
+info = html.Div(
+    [
+        dcc.Markdown("# T.J. Turnage", style={"textAlign": "center"}),
+        dcc.Markdown("Grand Rapids, MI USA", style={"textAlign": "center"}),
+        dcc.Markdown("### About", style={"textAlign": "center"}),
+        html.Hr(),
+        dbc.Row(
+            [
+                dbc.Col(
+                    [
+                        dcc.Markdown(
+                            """
+            * Saved by Grace 
+            * Husband
+            * Father
+            """
+                        )
+                    ],
+                    width={"size": 3, "offset": 1},
+                ),
+                dbc.Col(
+                    [
+                        dcc.Markdown(
+                            """
+            * Meteorologist 
+            * Bass player
+            * Python dilettante
+            """
+                        )
+                    ],
+                    width=3,
+                ),
+            ],
+            justify="center",
+        ),
+        html.Hr(),
+        dcc.Markdown("### Professional Summary", style={"textAlign": "center"}),
+        html.Hr(),
+        dcc.Markdown(
+            "Science and Operations Officer \n"
+            "Bringing new science and technology into operational meteorology ...",
+            style={"textAlign": "center", "white-space": "pre"},
+        ),
+        html.Hr(),
+        dcc.Markdown("### Skills", style={"textAlign": "center"}),
+        html.Hr(),
+        dbc.Row(
+            [
+                dbc.Col(
+                    [
+                        dcc.Markdown(
+                            """
+            * Python 
+            * Web development
+            """
+                        )
+                    ],
+                    width={"size": 3, "offset": 1},
+                ),
+                dbc.Col(
+                    [
+                        dcc.Markdown(
+                            """
+            * Image processing (GIMP)
+            """
+                        )
+                    ],
+                    width=3,
+                ),
+            ],
+            justify="center",
+        ),
+        html.Hr(),
+        dcc.Markdown("### Work History", style={"textAlign": "center"}),
+        html.Hr(),
+        dbc.Row(
+            [
+                dbc.Col(
+                    [dcc.Markdown("Jan 2006 - present", style={"textAlign": "center"})],
+                    width=2,
+                ),
+                dbc.Col(
+                    [
+                        dcc.Markdown(
+                            "Science and Operations Officer \n"
+                            "NOAA/National Weather Service - Grand Rapids, MI",
+                            style={"white-space": "pre"},
+                            className="ms-3",
+                        ),
+                        html.Ul(
+                            [
+                                html.Li(
+                                    "Bringing new science into operational meteorology"
+                                ),
+                            ]
+                        ),
+                    ],
+                    width=5,
+                ),
+            ],
+            justify="center",
+        ),
+        dbc.Row(
+            [
+                dbc.Col(
+                    [dcc.Markdown("Nov 1998 - Jan 2006", style={"textAlign": "center"})],
+                    width=2,
+                ),
+                dbc.Col(
+                    [
+                        dcc.Markdown(
+                            "Senior Meteorologist \n"
+                            "NOAA/National Weather Service - Tallahassee, FL",
+                            style={"white-space": "pre"},
+                            className="ms-3",
+                        ),
+                        html.Ul(
+                            [
+                                html.Li(
+                                    "Team leader for timely and accurate observations, forecasts, and warnings for parts of FL, GA, and AL"
+                                ),
+
+                            ]
+                        ),
+                    ],
+                    width=5,
+                ),
+            ],
+            justify="center",
+        ),
+        html.Hr(),
+        dcc.Markdown("### Education", style={"textAlign": "center"}),
+        html.Hr(),
+        dbc.Row(
+            [
+                dbc.Col([dcc.Markdown("1991", style={"textAlign": "center"})], width=2),
+                dbc.Col(
+                    [
+                        dcc.Markdown(
+                            "Bachelor of Science: Meteorology\n"
+                            "Iowa State University - Ames, IA",
+                            style={"white-space": "pre"},
+                            className="ms-3",
+                        ),
+                    ],
+                    width=5,
+                ),
+            ],
+            justify="center",
+        ),
+                dbc.Row(
+            [
+                dbc.Col([dcc.Markdown("2007", style={"textAlign": "center"})], width=2),
+                dbc.Col(
+                    [
+                        dcc.Markdown(
+                            "Master of Science: Meteorology\n"
+                            "Florida State University - Tallahassee, FL",
+                            style={"white-space": "pre"},
+                            className="ms-3",
+                        ),
+                    ],
+                    width=5,
+                ),
+            ],
+            justify="center",
+        ),
+    ]
+)
+
 
 layout = dbc.Container(
     dbc.Container(
         html.Div([
             dbc.Row(dbc.Col(html.Div(html.Hr()))),
             dbc.Row(dbc.Card(top_content, color="secondary", inverse=True))
-        ],className="text-center")
-))
-# layout = html.Div(
-#     [
-#         dcc.Markdown("# T.J. Turnage", style={"textAlign": "center"}),
-#         dcc.Markdown("Grand Rapids, MI USA", style={"textAlign": "center"}),
-#         dcc.Markdown("### About", style={"textAlign": "center"}),
-#         html.Hr(),
-#         dbc.Row(
-#             [
-#                 dbc.Col(
-#                     [
-#                         dcc.Markdown(
-#                             """
-#             * Saved by Grace 
-#             * Husband
-#             * Father
-#             """
-#                         )
-#                     ],
-#                     width={"size": 3, "offset": 1},
-#                 ),
-#                 dbc.Col(
-#                     [
-#                         dcc.Markdown(
-#                             """
-#             * Meteorologist 
-#             * Bass player
-#             * Python dilettante
-#             """
-#                         )
-#                     ],
-#                     width=3,
-#                 ),
-#             ],
-#             justify="center",
-#         ),
-#         html.Hr(),
-#         dcc.Markdown("### Professional Summary", style={"textAlign": "center"}),
-#         html.Hr(),
-#         dcc.Markdown(
-#             "Science and Operations Officer \n"
-#             "Bringing new science and technology into operational meteorology ...",
-#             style={"textAlign": "center", "white-space": "pre"},
-#         ),
-#         html.Hr(),
-#         dcc.Markdown("### Skills", style={"textAlign": "center"}),
-#         html.Hr(),
-#         dbc.Row(
-#             [
-#                 dbc.Col(
-#                     [
-#                         dcc.Markdown(
-#                             """
-#             * Python 
-#             * Web development
-#             """
-#                         )
-#                     ],
-#                     width={"size": 3, "offset": 1},
-#                 ),
-#                 dbc.Col(
-#                     [
-#                         dcc.Markdown(
-#                             """
-#             * Image processing (GIMP)
-#             """
-#                         )
-#                     ],
-#                     width=3,
-#                 ),
-#             ],
-#             justify="center",
-#         ),
-#         html.Hr(),
-#         dcc.Markdown("### Work History", style={"textAlign": "center"}),
-#         html.Hr(),
-#         dbc.Row(
-#             [
-#                 dbc.Col(
-#                     [dcc.Markdown("Jan 2006 - present", style={"textAlign": "center"})],
-#                     width=2,
-#                 ),
-#                 dbc.Col(
-#                     [
-#                         dcc.Markdown(
-#                             "Science and Operations Officer \n"
-#                             "NOAA/National Weather Service - Grand Rapids, MI",
-#                             style={"white-space": "pre"},
-#                             className="ms-3",
-#                         ),
-#                         html.Ul(
-#                             [
-#                                 html.Li(
-#                                     "Bringing new science into operational meteorology"
-#                                 ),
-#                             ]
-#                         ),
-#                     ],
-#                     width=5,
-#                 ),
-#             ],
-#             justify="center",
-#         ),
-#         dbc.Row(
-#             [
-#                 dbc.Col(
-#                     [dcc.Markdown("Nov 1998 - Jan 2006", style={"textAlign": "center"})],
-#                     width=2,
-#                 ),
-#                 dbc.Col(
-#                     [
-#                         dcc.Markdown(
-#                             "Senior Meteorologist \n"
-#                             "NOAA/National Weather Service - Tallahassee, FL",
-#                             style={"white-space": "pre"},
-#                             className="ms-3",
-#                         ),
-#                         html.Ul(
-#                             [
-#                                 html.Li(
-#                                     "Team leader for timely and accurate observations, forecasts, and warnings for parts of FL, GA, and AL"
-#                                 ),
+        ],className="text-center"),
+        #html.Div(dbc.Row(dbc.Col(children=info)))
+        )
+)
 
-#                             ]
-#                         ),
-#                     ],
-#                     width=5,
-#                 ),
-#             ],
-#             justify="center",
-#         ),
-#         html.Hr(),
-#         dcc.Markdown("### Education", style={"textAlign": "center"}),
-#         html.Hr(),
-#         dbc.Row(
-#             [
-#                 dbc.Col([dcc.Markdown("1991", style={"textAlign": "center"})], width=2),
-#                 dbc.Col(
-#                     [
-#                         dcc.Markdown(
-#                             "Bachelor of Science: Meteorology\n"
-#                             "Iowa State University - Ames, IA",
-#                             style={"white-space": "pre"},
-#                             className="ms-3",
-#                         ),
-#                     ],
-#                     width=5,
-#                 ),
-#             ],
-#             justify="center",
-#         ),
-#                 dbc.Row(
-#             [
-#                 dbc.Col([dcc.Markdown("2007", style={"textAlign": "center"})], width=2),
-#                 dbc.Col(
-#                     [
-#                         dcc.Markdown(
-#                             "Master of Science: Meteorology\n"
-#                             "Florida State University - Tallahassee, FL",
-#                             style={"white-space": "pre"},
-#                             className="ms-3",
-#                         ),
-#                     ],
-#                     width=5,
-#                 ),
-#             ],
-#             justify="center",
-#         ),
-#     ]
-# )
 
 # # ----------------------------------------
 # #        Show Text output window

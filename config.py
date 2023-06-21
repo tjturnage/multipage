@@ -2,6 +2,10 @@ from pathlib import Path
 from datetime import datetime, timedelta
 import pandas as pd
 
+start = datetime.utcnow() - timedelta(hours=3)
+
+
+
 DATA_DIRECTORY = '/home/tjturnage/multipage/data'
 if 'pyany' in Path().absolute().parts:
     DATA_DIRECTORY = 'C:/data/scripts/pyany/data'
@@ -67,12 +71,13 @@ def update_buoys():
     for buoy in BUOY_IDS:
         this_buoy_dataframe = None
         this_source = f'{DATA_DIRECTORY}/{buoy}.csv'
-        this_buoy_dataframe = pd.read_csv(this_source, parse_dates=['dts'], index_col='dts')
-        this_max_height = max(this_max_height, this_buoy_dataframe['WVHT'].max())
-        this_max_speed = max(this_max_speed, this_buoy_dataframe['GST'].max())
-        this_min_height = min(this_min_height, this_buoy_dataframe['WVHT'].min())
-        this_min_speed = min(this_min_speed, this_buoy_dataframe['GST'].min())
-        this_new_buoy_data[buoy] = this_buoy_dataframe
+        temp_dataframe = pd.read_csv(this_source, parse_dates=['dts'], index_col='dts')
+        set_ranges_df = temp_dataframe.loc[temp_dataframe.index > start]
+        this_max_height = max(this_max_height, set_ranges_df['WVHT'].max())
+        this_max_speed = max(this_max_speed, set_ranges_df['GST'].max())
+        this_min_height = min(this_min_height, set_ranges_df['WVHT'].min())
+        this_min_speed = min(this_min_speed, set_ranges_df['GST'].min())
+        this_new_buoy_data[buoy] = temp_dataframe
     
     this_max_wave = this_max_height + 1
     this_min_wave = this_min_height - 1
@@ -94,3 +99,4 @@ def update_times():
     start_time = now - timedelta(hours=3)
     end_time = now + timedelta(minutes=10)
     return now, start_time, end_time
+

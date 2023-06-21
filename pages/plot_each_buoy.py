@@ -11,6 +11,8 @@ from plotly.subplots import make_subplots
 from config import BUOY_DICT, SUBPLOT_TITLES, BUOY_IDS
 from config import update_buoys, update_times
 
+
+
 dash.register_page(__name__,
     path='/buoys',
     title='Buoys',
@@ -62,6 +64,10 @@ def update_graph(_n):
     Returns:
         fig: figure
     """
+    greenish = "rgba(0, 128, 0, 0.55)"
+    yellowish = "rgba(180, 180, 0, 0.45)"
+    orangish = "rgba(255, 119, 0, 0.5)"
+    reddish = "rgba(200, 0, 0, 0.5)"
     now,start_time,end_time = update_times()
     new_buoy_data, max_wave, min_wave, max_speed, min_speed = update_buoys()
     fig = make_subplots(
@@ -112,7 +118,26 @@ def update_graph(_n):
     fig.update_layout(template='plotly_dark')
     wind_range = dict(range=[min_speed, max_speed])
     wave_range = dict(range=[min_wave, max_wave])
+    for r in range(1,8):
+        fig.add_hrect(y0=min_wave, y1=3.5, fillcolor=greenish, line_width=0, row=r, col=1)
+        fig.add_hrect(y0=3.5, y1=100, fillcolor=yellowish, line_width=0, row=r, col=1)
+    
+        fig.add_hrect(y0=min_speed, y1=min(max_speed,21.5), fillcolor=greenish, line_width=0, row=r, col=2)
+        if max_speed > 21.5:
+            fig.add_hrect(y0=21.5, y1=min(max_speed,33.5), fillcolor=yellowish, line_width=0, row=r, col=2)
+        if max_speed > 33.5:
+            fig.add_hrect(y0=33.5, y1=min(max_speed,47.5), fillcolor=orangish, line_width=0, row=r, col=2)
+        if max_speed > 47.5:
+            fig.add_hrect(y0=47.5, y1=min(max_speed,63), fillcolor=reddish, opacity=1, line_width=0, row=r, col=2)
+        fig.add_vline(x=now, line=dict(dash="solid", width=2, color='white'), row=r, col=1)
+        fig.add_vline(x=now, line=dict(dash="solid", width=2, color='white'), row=r, col=2)
+
+    wave_range = dict(range=[min_wave, max_wave])
+    wind_range = dict(range=[min_speed, max_speed])
     fig.update_layout(yaxis1 = wave_range)
+    fig.update_layout(yaxis2 = wind_range)
+    fig.update_layout(yaxis3 = wave_range)
+    fig.update_layout(yaxis4 = wind_range)
     fig.update_layout(yaxis2 = wind_range)
     fig.update_layout(hovermode="x unified")
     fig.update_layout(hovermode="y unified")
@@ -166,4 +191,3 @@ storm is red and 48 knots to 63 knots
     fig.update_traces(textposition='top right')
     fig.update_shapes(layer="below")
     return fig
-

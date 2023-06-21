@@ -11,7 +11,7 @@ import polars as pl
 import plotly.express as px
 
 p = Path('/home/tjturnage')
-q = p / 'multipage' / 'data' / 'climate.txt'
+q = p / 'multipage' / 'assets' / 'climate.txt'
 
 if q.exists():
     DATA = q
