@@ -2,29 +2,23 @@
 This runs the climo plot
 """
 from pathlib import Path
-from datetime import datetime, date
+import os
 import dash
-from dash import Dash, html, dcc, callback, Output, Input
+from dash import html, dcc, callback, Output, Input
+
 import dash_bootstrap_components as dbc
 import polars as pl
-#import pandas as pd
+import pandas as pd
 import plotly.express as px
 
-p = Path('/home/tjturnage')
-q = p / 'multipage' / 'assets' / 'climate.txt'
-
-if q.exists():
-    DATA = q
+test_directory = Path('/home/tjturnage')
+if os.path.isdir(test_directory):
+    DATA = Path('/home/tjturnage/multipage/data/df.parquet.gzip')
 else:
-    DATA = "data/climate.txt"
+    DATA = Path('C:/data/scripts/pyany/data/df.parquet.gzip')
 
-df = pl.read_csv(DATA, has_header=True, null_values=["M"])
-df = df.with_columns(
-    [
-    pl.col("pcpn").str.replace("T", "0.001"),
-    pl.col("date").str.strptime(pl.Date, format='%Y-%m-%d', strict=False)
-    ]
-    )
+df = pl.read_parquet(DATA)
+
 
 out = df.select(
 [
