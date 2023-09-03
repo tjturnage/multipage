@@ -69,7 +69,6 @@ def update_buoys():
     this_min_height = 100
     this_min_speed = 100
     for buoy in BUOY_IDS:
-        this_buoy_dataframe = None
         this_source = f'{DATA_DIRECTORY}/{buoy}.csv'
         temp_dataframe = pd.read_csv(this_source, parse_dates=['dts'], index_col='dts')
         set_ranges_df = temp_dataframe.loc[temp_dataframe.index > start]

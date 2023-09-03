@@ -10,6 +10,7 @@ import dash_bootstrap_components as dbc
 import polars as pl
 import pandas as pd
 import plotly.express as px
+import requests
 
 test_directory = Path('/home/tjturnage')
 if os.path.isdir(test_directory):

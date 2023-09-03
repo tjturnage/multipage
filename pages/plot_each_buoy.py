@@ -140,7 +140,7 @@ def update_graph(_n):
     fig.update_layout(yaxis4 = wind_range)
     fig.update_layout(yaxis2 = wind_range)
     fig.update_layout(hovermode="x unified")
-    fig.update_layout(hovermode="y unified")
+    #fig.update_layout(hovermode="y unified")
     fig.update_layout(title_x=0.08)
 
     """_summary_
