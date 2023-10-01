@@ -47,7 +47,6 @@ EMBEDDED_HTML = """
   <li><a href="https://tjturnage.pythonanywhere.com/assets/latest_surface_observations.txt">Surface obs - All elements</a></li>
   <li><a href="https://tjturnage.pythonanywhere.com/assets/latest_surface_observations_lg.txt">Surface obs - All elements - large font</a></li>
   <li><a href="https://tjturnage.pythonanywhere.com/assets/latest_surface_observations_xlg.txt">Surface obs - All elements - extra large font</a></li>
-  <li></li>
   <li><a href="https://tjturnage.pythonanywhere.com/assets/temp.txt">Air Temperature</a></li>
   <li><a href="https://tjturnage.pythonanywhere.com/assets/dwpt.txt">Dewpoint Temperature</a></li>
   <li><a href="https://tjturnage.pythonanywhere.com/assets/road.txt">MI Road Temperature</a></li>
