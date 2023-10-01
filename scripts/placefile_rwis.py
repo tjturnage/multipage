@@ -18,7 +18,7 @@ import requests
 
 try:
     os.listdir('/home/tjturnage')
-    DEST_HOME = '/home/tjturnage/assets'
+    DEST_HOME = '/home/tjturnage/multipage/assets'
 except FileNotFoundError:
     DEST_HOME = 'C:/data'
 
