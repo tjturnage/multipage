@@ -61,6 +61,10 @@ bullet_list = dbc.Col(
     html.Ul([
         html.Li(html.A("Surface Obs", \
         href="assets/latest_surface_observations.txt")),
+        html.Li(html.A("Surface Obs - large font", \
+        href="assets/latest_surface_observations_lg.txt")),
+        html.Li(html.A("Surface Obs - extra large font", \
+        href="assets/latest_surface_observations_xlg.txt")),
         html.Li(html.A("Air Temperature", \
         href="assets/temp.txt")),
         html.Li(html.A("Dewpoint Temperature", \
