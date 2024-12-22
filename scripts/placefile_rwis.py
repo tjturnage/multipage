@@ -15,6 +15,9 @@ import os
 import math
 from datetime import datetime, timedelta
 import requests
+from dotenv import load_dotenv
+load_dotenv()
+API_TOKEN = os.getenv("SYNOPTIC_API_TOKEN")
 
 try:
     os.listdir('/home/tjturnage')
@@ -23,7 +26,6 @@ except FileNotFoundError:
     DEST_HOME = 'C:/data'
 
 #from api_tokens import mesowest_API_TOKEN as API_TOKEN
-API_TOKEN = "292d36a692d74badb6ca011f4413ae1b"
 API_ROOT = "https://api.synopticdata.com/v2/"
 
 def time_shift(time_str,num,d_t,direction='backward',api='mesowest'):
@@ -44,17 +46,17 @@ def time_shift(time_str,num,d_t,direction='backward',api='mesowest'):
               api : string
                     'mesowest'       - format needed for mesowest api request
                                        Example: '2020-01-10T06:35:12Z'
-                                        
+
                     'mping'          - format needed for mping api request
                                        Example: '2020-01-10 06:35:12'
-            
+
     Returns
     -------
             times : list
                     list of time intervals. These intervals contain 3 elements:
                     - interval start time string as 'YYYYmmddHHMM'
                     - interval start time string using either mesowest or mping format
-                    - interval end time string using either mesowest or mping format                    
+                    - interval end time string using either mesowest or mping format
 
 
     """
@@ -89,13 +91,13 @@ class Mesowest():
 
     """
 
-    def __init__(self,bbox="-90.5,40,-82,47", steps=5, event_time=None):
+    def __init__(self,bbox="-92.0,40,-82,47", steps=12, event_time=None):
         self.bbox = bbox
         self.steps = steps
         self.event_time = event_time
-        self.d_t = 10 # number of minutes to increment
-        self.network = "1,2,96,162"
-        self.var_str = 'air_temp,dew_point_temperature,wind_speed,wind_direction,wind_gust,visibility,road_temp'
+        self.d_t = 5 # number of minutes to increment
+        self.network = "1,2,96,162,286"
+        self.var_str = 'air_temp,dew_point_temperature,wind_speed,wind_direction,wind_gust,visibility'
         self.unit_str = 'temp|F,speed|kts,precip|in'
         self.api_args = {"token":API_TOKEN,
                 "bbox":self.bbox,
@@ -108,7 +110,7 @@ class Mesowest():
         if self.event_time is None:
             now = datetime.utcnow()
             round_down = now.minute%5
-            round_up = round_down + 15
+            round_up = round_down + 20
             self.base_time = now + timedelta(minutes=round_up)
             self.place_time = now - timedelta(minutes=round_down)
             self.place_ts = datetime.strftime(self.place_time,'%Y%m%d%H%M')
@@ -130,10 +132,10 @@ class Mesowest():
                     }
 
         self.var_list = list(self.short_dict.keys())
-        public_wind_zoom = 800
-        rwis_wind_zoom = 150
-        public_t_zoom = 125
-        rwis_t_zoom = 75
+        public_wind_zoom = 950
+        rwis_wind_zoom = 800
+        public_t_zoom = 175
+        rwis_t_zoom = 120
         gray = '180 180 180'
         white= '255 255 255'
 
@@ -189,7 +191,7 @@ class Mesowest():
         """
         go through the steps
         """
-        
+
         icon_font_text = '\n\nRefresh: 1\
         \nColor: 255 200 255\
         \nIconFile: 1, 18, 32, 2, 31, "https://mesonet.agron.iastate.edu/request/grx/windbarbs.png"\
@@ -198,7 +200,7 @@ class Mesowest():
         \nIconFile: 4, 13, 24, 2, 23, "https://www.turnageweather.us/assets/windbarbs-small.png"\
         \nFont: 1, 11, 1, "Arial"\
         \nFont: 2, 14, 1, "Arial"\n\n'
-  
+
         self.placefile = 'Title: Mesowest ' + self.place_title + icon_font_text
         self.wind_placefile = 'Title: Mesowest ' + self.wind_place_title + icon_font_text
         self.road_placefile = 'Title: Mesowest ' + self.road_place_title + icon_font_text
@@ -234,7 +236,7 @@ class Mesowest():
                 wind_zoom = this_dict['wind']['threshold']
                 other_zoom = this_dict['t']['threshold']
                 icon_number = this_dict['wind_icon_number']
-                font_code = this_dict['font_code']
+                #font_code = this_dict['font_code']
                 t_txt, dp_txt, vis_txt, rt_txt = '', '', '', ''
                 t_str, dp_str, wdir_str, wspd_str, wgst_str, vis_str, rt_str = 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA'
                 if status == 'ACTIVE':
@@ -263,7 +265,7 @@ class Mesowest():
                                 wgst_str, text_info = self.convert_met_values(scratch,short,this_dict)
                                 #wgst_txt = temp_txt + text_info
 
-                        except:
+                        except KeyError:
                             pass
 
 
@@ -305,11 +307,11 @@ class Mesowest():
 
         with open(os.path.join(DEST_HOME, 'latest_surface_observations.txt'), 'w', encoding='utf8') as outfile:
             outfile.write(self.all_placefile)
-        
+
 
         with open(os.path.join(DEST_HOME, 'latest_surface_observations.txt'),'r',encoding='utf8') as fin:
             data = fin.readlines()
-            
+
             with open(os.path.join(DEST_HOME, 'latest_surface_observations_lg.txt'), 'w', encoding='utf8') as largefout:
                 with open(os.path.join(DEST_HOME, 'latest_surface_observations_xlg.txt'), 'w', encoding='utf8') as xlargefout:
                     for line in data:
@@ -346,15 +348,15 @@ class Mesowest():
 
     def placefile_wind_speed_code(self,wspd):
         """
-        Returns the proper code for plotting wind speeds in a GR2Analyst placefile. 
+        Returns the proper code for plotting wind speeds in a GR2Analyst placefile.
         This code is then used for the placefile IconFile method described at:
             http://www.grlevelx.com/manuals/gis/files_places.htm
-        
+
         Parameters
         ----------
                 wspd : string
                         wind speed in knots
-                                            
+
         Returns
         -------
                 code : string
@@ -401,6 +403,7 @@ class Mesowest():
             _type_: _description_
         """
         numfloat = float(num)
+        text_info = 'ignore'
         if (num != 'NA' ):
             if (short == 't') or (short == 'dp') or (short == 'rt'):
                 new = int(round(numfloat))
@@ -500,11 +503,11 @@ class Mesowest():
         position = this_dict[short]['position']
         thresh_line = f'Threshold: {threshold}\n'
         color_line = f'  Color: {color}\n'
-        position = f'  Text: {position}, {new_str}\n'
+        position = f'  Text: {position} {new_str}\n'
         text_info = thresh_line + color_line + position
         return text_info
 
 
 if __name__ == "__main__":
     test = Mesowest()
-    
+
