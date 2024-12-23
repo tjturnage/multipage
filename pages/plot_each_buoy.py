@@ -13,11 +13,11 @@ from config import update_buoys, update_times
 
 
 
-dash.register_page(__name__,
-    path='/buoys',
-    title='Buoys',
-    name='Buoys',
-    order=7)
+# dash.register_page(__name__,
+#     path='/buoys',
+#     title='Buoys',
+#     name='Buoys',
+#     order=7)
 
 
 def layout():

@@ -31,9 +31,9 @@ out = df.select(
 ])
 
 
-dash.register_page(__name__,
-    title='GRR Climo',
-    name='GRR Climo', order=2)
+# dash.register_page(__name__,
+#     title='GRR Climo',
+#     name='GRR Climo', order=2)
 
 def layout():
     """

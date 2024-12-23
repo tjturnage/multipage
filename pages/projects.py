@@ -28,7 +28,7 @@ df = pd.read_csv(DATA)
 
 #print(df)
 
-dash.register_page(__name__, title="Projects", order=6)
+# dash.register_page(__name__, title="Projects", order=6)
 
 def layout():
     """

@@ -17,11 +17,11 @@ from config import BUOY_DICT, SUBPLOT_TITLES, BUOY_IDS
 from urllib.request import urlopen
 import json
 
-dash.register_page(__name__,
-    path='/buoymap',
-    title='Buoy Map',
-    name='Buoy Map',
-    order=8)
+# dash.register_page(__name__,
+#     path='/buoymap',
+#     title='Buoy Map',
+#     name='Buoy Map',
+#     order=8)
 
 
 class PlotTimes:
