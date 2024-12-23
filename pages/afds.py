@@ -13,21 +13,20 @@ dash.register_page(__name__,
 def layout():
     """Area Forecast Discussions page layout
 
-    Returns:
-        None
+    Note: the dimensions of the html.ObjectEl are defined by object.css in the assets folder
     """
     return dbc.Container([
         dbc.Row([
             dbc.Col(
                 html.Div([
                 html.Div(children=[html.ObjectEl( \
-                data="https://tjturnage.pythonanywhere.com/assets/afds.txt")], \
+                data="https://www.turnageweather.us/assets/afds.txt")], \
                 id="display-file-content-response",
-                style={'height':'800px'})
+                style={'padding':'1em',
+                       'height':'1200px'})
                 ],
                 style={'padding':'1em',
-                       'height':'900px'})
+                       'height':'1200px'})
             )
-        ],style={'padding':'0.5em',
-                 'height':'900px'}),
+        ])
         ])

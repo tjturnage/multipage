@@ -6,7 +6,7 @@ import dash_bootstrap_components as dbc
 dash.register_page(__name__,
     path='/spc_ma_loops',
     title='SPC Mesoanalysis Loops',
-    name='MesoA Loops',
+    name='SPC Mesoanalysis Loops',
     order=4)
 
 

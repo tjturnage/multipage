@@ -57,7 +57,8 @@ EMBEDDED_HTML = """
 </html>
 """
 
-bullet_list = dbc.Col(
+bullet_list = dbc.Container(
+dbc.Col(
     html.Ul([
         html.Li(html.A("Surface Obs", \
         href="assets/latest_surface_observations.txt")),
@@ -74,7 +75,7 @@ bullet_list = dbc.Col(
         html.Li(html.A("Wind and Gust", \
         href="assets/wind.txt")),
     ])
-)
+))
 
 # Define the page layout
 def layout():
@@ -85,19 +86,3 @@ def layout():
     """
     return dbc.Container(bullet_list)
 
-# def layout():
-#     """mesoanalysis page layout
-
-#     Returns:
-#         None
-#     """
-#     return dbc.Container([
-#       dbc.Row([
-#           dbc.Col(
-#               html.Iframe(
-#                   srcDoc=EMBEDDED_HTML,
-#                   style={'width': '100%', 'height': '980px'}
-#               )
-#           )
-#         ],style={'padding':'0.5em'}),
-#             ])
