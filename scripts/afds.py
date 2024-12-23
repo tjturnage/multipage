@@ -3,12 +3,16 @@
     Returns:
         _type_: _description_
 """
+import sys
 from datetime import datetime
 # from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-OUTPUT_PATH = '/home/tjturnage/multipage/assets/afds.txt'
+if sys.platform.startswith('win'):
+    OUTPUT_PATH = 'C:/data/scripts/multipage/assets/afds.txt'
+else:
+    OUTPUT_PATH = '/home/tjturnage/multipage/assets/afds.txt'
 
 
 UPDATE = True
