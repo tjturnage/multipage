@@ -235,9 +235,6 @@ fig.update_layout(
     paper_bgcolor="LightSteelBlue",)
 
 """
-
-MAPBOX_TOKEN = 'pk.eyJ1IjoidGp0dXJuYWdlIiwiYSI6ImNsaXoydWQ1OTAyZmYzZmxsM21waWU2N3kifQ.MDNAdaS61MNNmHimdrV7Kg'
-
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -269,5 +266,3 @@ fig.update_layout(mapbox=dict(
 
 # Show the figure
 fig.show()
-
-

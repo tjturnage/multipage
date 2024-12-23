@@ -3,11 +3,11 @@ import dash
 from dash import html #, dcc, callback, Input, Output
 import dash_bootstrap_components as dbc
 
-# dash.register_page(__name__,
-#     path='/vortex',
-#     title='Rankine Vortex',
-#     name='Rankine Vortex',
-#     order=5)
+dash.register_page(__name__,
+    path='/vortex',
+    title='2D vortex model',
+    name='2D vortex model',
+    order=5)
 
 EMBEDDED_HTML = """
 <!DOCTYPE html>
@@ -44,6 +44,9 @@ EMBEDDED_HTML = """
 
 <body>
     <div class="container">
+        <h3>Mouse over the box to see the effects of translation and convergence on the simulated tornado vortex</h3>
+    </div>
+    <div class="container">
         <div class="row">
             <div class="col">
                 <section>
@@ -52,7 +55,7 @@ EMBEDDED_HTML = """
             </div>
             <div class="col">
                 <div>
-                    In the box below ... <br> Mouse right to increase translation<br>
+                    Mouse right to increase translation<br>
                     Mouse up to increase convergence</div>
                 <section>
                     <table id="sudoku" border="2">
@@ -379,7 +382,7 @@ def layout():
           dbc.Col(
               html.Iframe(
                   srcDoc=EMBEDDED_HTML,
-                  style={'width': '100%', 'height': '650px'}
+                  style={'width': '100%', 'height': '725px'}
               )
           )
         ],style={'padding':'0.5em'}),

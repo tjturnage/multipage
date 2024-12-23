@@ -3,7 +3,7 @@ This is the main app that drives everything
 """
 import dash
 import dash_bootstrap_components as dbc
-app = dash.Dash(__name__, external_stylesheets= [dbc.themes.DARKLY],use_pages=True)
+app = dash.Dash(__name__, external_stylesheets= [dbc.themes.CYBORG],use_pages=True)
 app.config['suppress_callback_exceptions'] = True
 
 ASSETS_DIR = "/home/tjturnage/multipage/assets"
