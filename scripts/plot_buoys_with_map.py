@@ -198,7 +198,6 @@ LATITUDE_VALUES = [42.0, 43.0, 43.5]
 LONGITUDE_VALUES = [-86.0, -86.5, -87.0]
 TEXT_VALUES = ['<b>Text 1</b>', '<b>Text 2</b>', '<b>Text 3</b>']
 
-MAPBOX_TOKEN = 'pk.eyJ1IjoidGp0dXJuYWdlIiwiYSI6ImNsaXoydWQ1OTAyZmYzZmxsM21waWU2N3kifQ.MDNAdaS61MNNmHimdrV7Kg'
 
 trace = go.Choroplethmapbox(
     geojson=overlay_data,
