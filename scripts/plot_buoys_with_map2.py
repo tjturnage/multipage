@@ -190,10 +190,7 @@ class PlotBuoy:
         fig.update_layout(title_x=0.08)
 
 
- 
 
-
-        
 
 
         wave_range = dict(range=[self.buoys.min_height, self.buoys.max_height])

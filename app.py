@@ -58,7 +58,7 @@ header = dbc.Container(dbc.Navbar(
                         children=[
                             dbc.DropdownMenuItem(page["name"], href=page["path"])
                             for page in dash.page_registry.values()
-                            if not page["path"].startswith("/app") and page["name"] in ["Placefiles", "User Defined Products"]
+                            if not page["path"].startswith("/app") and page["name"] in ["Placefiles", "User Defined Products", "Color Tables"]
                         ],
                         nav=True,
                         in_navbar=True,
@@ -82,7 +82,7 @@ header = dbc.Container(dbc.Navbar(
                         children=[
                             dbc.DropdownMenuItem(page["name"], href=page["path"])
                             for page in dash.page_registry.values()
-                            if not page["path"].startswith("/app") and page["name"] in ["Open Source", "2D vortex model"]
+                            if not page["path"].startswith("/app") and page["name"] in ["Open Source", "2D vortex model", "Bayes Theorem"]
                         ],
                         nav=True,
                         in_navbar=True,
