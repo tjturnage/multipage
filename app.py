@@ -18,6 +18,13 @@ top = html.Div([
 header = dbc.Container(dbc.Navbar(
     dbc.Container(
         [
+             dbc.Row(class_name="flex-grow-1", children=
+                [
+
+                    dbc.Col(
+                                     dbc.Col(html.Img(src="https://www.turnageweather.us/assets/favicon.ico", height="40px")),
+                    )]
+            ),
             dbc.Row(class_name="flex-grow-1", children=
                 [
 
@@ -26,11 +33,13 @@ header = dbc.Container(dbc.Navbar(
                         [
                             dbc.NavLink(page["name"], href=page["path"])
                             for page in dash.page_registry.values()
-                            if not page["path"].startswith("/app") and page["name"] in ["tw home"]
+                            if not page["path"].startswith("/app") and page["name"] in ["turnageweather.us"]
                         ]
                     ),
-                    ),
-
+                    )]
+            ),
+            dbc.Row(class_name="flex-grow-1", children=
+            [
                     dbc.Col(
                     dbc.DropdownMenu(
                         label="Forecast Stuff",
@@ -49,7 +58,7 @@ header = dbc.Container(dbc.Navbar(
                         children=[
                             dbc.DropdownMenuItem(page["name"], href=page["path"])
                             for page in dash.page_registry.values()
-                            if not page["path"].startswith("/app") and page["name"] in ["Placefiles"]
+                            if not page["path"].startswith("/app") and page["name"] in ["Placefiles", "User Defined Products"]
                         ],
                         nav=True,
                         in_navbar=True,
@@ -73,7 +82,7 @@ header = dbc.Container(dbc.Navbar(
                         children=[
                             dbc.DropdownMenuItem(page["name"], href=page["path"])
                             for page in dash.page_registry.values()
-                            if not page["path"].startswith("/app") and page["name"] in ["GIMP", "Blender"]
+                            if not page["path"].startswith("/app") and page["name"] in ["Open Source", "2D vortex model"]
                         ],
                         nav=True,
                         in_navbar=True,

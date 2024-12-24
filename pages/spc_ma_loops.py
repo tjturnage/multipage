@@ -313,6 +313,23 @@ EMBEDDED_HTML = """
 
 """
 
+mesoanalysis = dbc.Container([
+    dbc.Row([
+        dbc.Col(
+            html.Iframe(
+                srcDoc=EMBEDDED_HTML,
+                style={'width': '100%', 'height': '900px'}
+            )
+        )
+    ], style={'padding': '0.5em'}),
+])
+
+
+title = dbc.Container([
+        html.Br(),
+        dbc.Row([dbc.Col(html.H2("SPC Mesoanalysis Loops"), width=12)])
+    ])
+
 # Define the page layout
 def layout():
     """mesoanalysis page layout
@@ -320,13 +337,4 @@ def layout():
     Returns:
         None
     """
-    return dbc.Container([
-      dbc.Row([
-          dbc.Col(
-              html.Iframe(
-                  srcDoc=EMBEDDED_HTML,
-                  style={'width': '100%', 'height': '900px'}
-              )
-          )
-        ],style={'padding':'0.5em'}),
-            ])
+    return dbc.Container([title, mesoanalysis])

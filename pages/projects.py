@@ -16,24 +16,27 @@ else:
 dash.register_page(__name__,
                    path='/projects',
     title='Open Source',
-    name='Projects',
-    order=6)
+    name='Open Source')
 
+title = dbc.Container([
+        html.Br(),
+        dbc.Row([dbc.Col(html.H2("(Mostly) Open Source Projects"), width=12)])
+    ])
 
-def layout():
-    """
-    Temp layout
-    """
-    return html.Div(
-        [
+content = dbc.Container([
             dbc.Row(
                 [
                     dbc.Col(
-                        html.H1("Open Source Rocks!"),
+                        html.H1("Check back later!"),
                         width=12,
                     ),
                 ]
             )
-        ]
-    )
+        ])
 
+
+def layout():
+    """
+    Layout of projects page
+    """
+    return dbc.Container([title, content])

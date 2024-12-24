@@ -44,9 +44,6 @@ EMBEDDED_HTML = """
 
 <body>
     <div class="container">
-        <h3>Mouse over the box to see the effects of translation and convergence on the simulated tornado vortex</h3>
-    </div>
-    <div class="container">
         <div class="row">
             <div class="col">
                 <section>
@@ -370,6 +367,27 @@ EMBEDDED_HTML = """
 </html>
 """
 
+title = dbc.Container([
+        html.Br(),
+        dbc.Row([dbc.Col(html.H2("2D Vortex Model"), width=12)])
+    ])
+
+instructions = dbc.Container([
+        dbc.Row([dbc.Col(html.H4("Mouse over the box to change translation and convergence with the vortex."), width=12)])
+    ])
+
+
+content = dbc.Container([
+      dbc.Row([
+          dbc.Col(
+              html.Iframe(
+                  srcDoc=EMBEDDED_HTML,
+                  style={'width': '100%', 'height': '625px'}
+              )
+          )
+        ],style={'padding':'0.5em'}),
+            ])
+
 # Define the page layout
 def layout():
     """mesoanalysis page layout
@@ -377,13 +395,4 @@ def layout():
     Returns:
         None
     """
-    return dbc.Container([
-      dbc.Row([
-          dbc.Col(
-              html.Iframe(
-                  srcDoc=EMBEDDED_HTML,
-                  style={'width': '100%', 'height': '725px'}
-              )
-          )
-        ],style={'padding':'0.5em'}),
-            ])
+    return dbc.Container([title, instructions, content])

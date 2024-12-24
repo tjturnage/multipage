@@ -2037,14 +2037,13 @@ please email thomas.turnage@noaa.gov for bug reports or suggestions
 </html>
 """
 
-# Define the page layout
-def layout():
-    """mesoanalysis page layout
+title = dbc.Container([
+        html.Br(),
+        dbc.Row([dbc.Col(html.H2("SPC Mesoanalysis"), width=12)])
+    ])
 
-    Returns:
-        None
-    """
-    return dbc.Container([
+
+mesoanalysis = dbc.Container([
       dbc.Row([
           dbc.Col(
               html.Iframe(
@@ -2054,3 +2053,12 @@ def layout():
           )
         ],style={'padding':'0.5em'}),
             ])
+
+# Define the page layout
+def layout():
+    """mesoanalysis page layout
+
+    Returns:
+        None
+    """
+    return dbc.Container([title, mesoanalysis])
