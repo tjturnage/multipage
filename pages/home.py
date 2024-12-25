@@ -18,6 +18,14 @@ top_content = [
 ]
 
 # Define the page layout
+info2 = html.Div(
+    [
+        dcc.Markdown("# T.J. Turnage", style={"textAlign": "center"}),
+        dcc.Markdown("Grand Rapids, MI USA", style={"textAlign": "center"}),
+        dcc.Markdown("### About", style={"textAlign": "center"}),
+        html.Hr()
+    ])
+
 
 info = html.Div(
     [
@@ -196,7 +204,7 @@ layout = dbc.Container(
             dbc.Row(dbc.Col(html.Div(html.Hr()))),
             dbc.Row(dbc.Card(top_content, color="secondary", inverse=True))
         ],className="text-center"),
-        #html.Div(dbc.Row(dbc.Col(children=info)))
+        #html.Div([dbc.Row(dbc.Col(info2))])
         )
 )
 
