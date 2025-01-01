@@ -10,20 +10,20 @@ Obs network/station providers: https://developers.synopticdata.com/about/station
 Selecting stations: https://developers.synopticdata.com/mesonet/v2/station-selectors/
 
 """
-
+import sys
 import os
 import math
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import requests
 from dotenv import load_dotenv
 load_dotenv()
 API_TOKEN = os.getenv("SYNOPTIC_API_TOKEN")
 
-try:
-    os.listdir('/home/tjturnage')
+if sys.platform.startswith('win'):
+    DEST_HOME = 'C:/data/scripts/multipage/assets'
+else:
     DEST_HOME = '/home/tjturnage/multipage/assets'
-except FileNotFoundError:
-    DEST_HOME = 'C:/data'
+
 
 #from api_tokens import mesowest_API_TOKEN as API_TOKEN
 API_ROOT = "https://api.synopticdata.com/v2/"
@@ -88,7 +88,6 @@ def time_shift(time_str,num,d_t,direction='backward',api='mesowest'):
 class Mesowest():
     """
     Need to put something in here
-
     """
 
     def __init__(self,bbox="-92.0,40,-82,47", steps=12, event_time=None):
@@ -97,7 +96,7 @@ class Mesowest():
         self.event_time = event_time
         self.d_t = 5 # number of minutes to increment
         self.network = "1,2,96,162,286"
-        self.var_str = 'air_temp,dew_point_temperature,wind_speed,wind_direction,wind_gust,visibility'
+        self.var_str = 'air_temp,dew_point_temperature,wind_speed,wind_direction,wind_gust,visibility,road_temp'
         self.unit_str = 'temp|F,speed|kts,precip|in'
         self.api_args = {"token":API_TOKEN,
                 "bbox":self.bbox,
@@ -108,7 +107,7 @@ class Mesowest():
                 "within":"30"}
 
         if self.event_time is None:
-            now = datetime.utcnow()
+            now = datetime.now(timezone.utc)
             round_down = now.minute%5
             round_up = round_down + 20
             self.base_time = now + timedelta(minutes=round_up)
@@ -289,7 +288,7 @@ class Mesowest():
                 if vis_str != 'NA':
                     self.placefile += f'{obj_head}{vis_txt} End:\n\n'
                 if rt_str != 'NA':
-                    self.all_placefile += f'{obj_head}  Threshold: {other_zoom}\n{rt_txt} End:\n\n'
+                    #self.all_placefile += f'{obj_head}  Threshold: {other_zoom}\n{rt_txt} End:\n\n'
                     self.road_placefile += f'{obj_head}  Threshold: {other_zoom}\n{rt_txt} End:\n\n'
 
 

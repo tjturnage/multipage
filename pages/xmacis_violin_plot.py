@@ -1,5 +1,6 @@
 """
-This is a simple example of a Dash app that uses the ACIS API to get temperature data for a station and then
+This is a simple example of a Dash app that uses the ACIS API to get temperature data
+for a station and then displays a violin plot comparing the temperatures for a range.
 """
 
 from datetime import datetime
@@ -24,18 +25,30 @@ mon = {1:'Jan', 2:'Feb', 3:'Mar', 4:'Apr', 5:'May', 6:'Jun', 7:'Jul', 8:'Aug',
        9:'Sep', 10:'Oct', 11:'Nov', 12:'Dec'}
 months = list(np.arange(1,13))
 dates = list(np.arange(1,32))
-month_categories = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+month_categories = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+                    'Oct', 'Nov', 'Dec']
+columns = ['mint', 'maxt', 'avgt', 'maxt_n','mint_n','avgt_n']
+dftypes = {"dts": 'string', "year": 'int', "month": 'int', "day": 'int',
+           "maxt": 'int', "mint": 'int', "avgt": 'float',
+           "maxt_n": 'float', "mint_n": 'float', "avgt_n": 'float'}
 
 
 class XMACIS():
+    """
+    Class to get and store data from the ACIS API
+    """
     def __init__(self, station):
         self.station = station
         self.get_por_metadata()
         self.df = self.get_all_por_data()
-        self.melted = pd.melt(self.df, id_vars=['year','month','day'], value_vars=['mint', 'maxt', 'avgt', 'maxt_n','mint_n','avgt_n'], value_name='temperature')
+        self.melted = pd.melt(self.df, id_vars=['year','month','day'], \
+            value_vars=columns, value_name='temperature')
         self.melted = self.melted.astype({"variable": 'string'}, errors='ignore')
 
     def get_por_metadata(self) -> None:
+        """
+        Get the metadata for the station of interest
+        """
         params = {"sids": self.station, "elems": "maxt", "meta": ["name","valid_daterange"]}
         req = requests.post(META_URL, json=params, timeout=5)
         data = req.json()
@@ -46,7 +59,10 @@ class XMACIS():
         self.por_start_date_obj = datetime.strptime(self.por_start_date_str, '%Y-%m-%d')
         self.por_end_date_obj = datetime.strptime(self.por_end_date_str, '%Y-%m-%d')
 
-    def get_all_por_data(self):
+    def get_all_por_data(self) -> pd.DataFrame:
+        """
+        Get all the data for the station of interest
+        """
         parms = {
             "sid": self.station,
             "sdate": self.por_start_date_str,
@@ -71,7 +87,7 @@ class XMACIS():
         df['year'] = df.index.year
         df['month'] = df.index.month
         df['day'] = df.index.day
-        df = df.astype({"dts": 'string', "year": 'int', "month": 'int', "day": 'int', "maxt": 'int', "mint": 'int', "avgt": 'float', "maxt_n": 'float', "mint_n": 'float', "avgt_n": 'float'}, errors='ignore')
+        df = df.astype(dftypes, errors='ignore')
         return df
 
 # Initial setup
@@ -114,24 +130,24 @@ stuff = dbc.Container([
                     {'label': 'Max Temp', 'value': 'maxt'},
                     {'label': 'Avg Temp', 'value': 'avgt'}
                 ],
-                value='maxt', id="element", searchable=False
+                value='maxt', id="element", clearable=False
             )
         ], width=2),
         dbc.Col([
             html.H6('Baseline start year'),
-            dcc.Dropdown(yrs, value=por_start, id='base_start', searchable=False)
+            dcc.Dropdown(yrs, value=por_start, id='base_start', clearable=False)
         ], width=2),
         dbc.Col([
             html.H6('Baseline end year'),
-            dcc.Dropdown(yrs, value=por_end, id='base_end', searchable=False)
+            dcc.Dropdown(yrs, value=por_end, id='base_end', clearable=False)
         ], width=2),
         dbc.Col([
             html.H6('Comparison start year'),
-            dcc.Dropdown(yrs, value=por_start, id='comp_start', searchable=False)
+            dcc.Dropdown(yrs, value=por_start, id='comp_start', clearable=False)
         ], width=2),
         dbc.Col([
             html.H6('Comparison end year'),
-            dcc.Dropdown(yrs, value=por_end, id='comp_end', searchable=False)
+            dcc.Dropdown(yrs, value=por_end, id='comp_end', clearable=False)
         ], width=2),
 
     ]),
@@ -140,6 +156,15 @@ stuff = dbc.Container([
 ])
 
 layout = dbc.Container([title, stuff])
+
+def create_legend(start_year, end_year):
+    """
+    Create a legend for the plot. If the start and end year are the same, only
+    the start year is returned.
+    """
+    if start_year == end_year:
+        return f'{start_year}'
+    return f'{start_year}-{end_year}'
 
 @callback(
     Output("graphing", "figure"),
@@ -167,14 +192,16 @@ def update_violin_chart(base_start, base_end, comp_start, comp_end, element):
         col = 'orange'
     
     fig = go.Figure()
+    this_name = create_legend(base_start, base_end)
     fig.add_trace(go.Violin(x=df_base['mon'], y=df_base['temperature'],
-                            legendgroup='Yes', scalegroup='Yes', name=f'{base_start}-{base_end}',
+                            legendgroup='Yes', scalegroup='Yes', name=this_name,
                             side='negative',
                             line_color='gray')
                 )
+    this_name = create_legend(comp_start, comp_end)
     fig.add_trace(go.Violin(x=df_year['mon'],
                             y=df_year['temperature'],
-                            legendgroup='No', scalegroup='No', name=f'{comp_start}-{comp_end}',
+                            legendgroup='No', scalegroup='No', name=this_name,
                             side='positive',
                             line_color=col)
                 )
@@ -187,6 +214,34 @@ def update_violin_chart(base_start, base_end, comp_start, comp_end, element):
     fig.update_layout(title=f'{test.full_name} - {nice_name}',
                         legend_title='',
                         yaxis_title='Temperature  (F)')
-    #fig.update_layout(margin=dict(l=20, r=10, t=60, b=20))
     fig.update_layout(margin={'l':20, 'r':10, 't':60, 'b':20})
     return fig
+
+
+
+@callback(
+    Output('base_end', 'options'),
+    Output('base_end', 'value'),
+    Input('base_start', 'value'),
+    
+)
+def update_base_end_year_dropdown(base_start):
+    """
+    Updates the day dropdown based on the selected year and month
+    """  
+    base_end_year_list = list(range(base_start, por_end + 1))
+    base_end_value = min(base_start + 30, por_end)
+    return base_end_year_list, base_end_value
+
+@callback(
+    Output('comp_end', 'options'),
+    Output('comp_end', 'value'),
+    Input('comp_start', 'value'),
+)
+def update_compare_end_year_dropdown(comp_start):
+    """
+    Updates the day dropdown based on the selected year and month
+    """
+    comp_end_year_list = list(range(comp_start, por_end + 1))
+    comp_end_value = min(comp_start + 30, por_end)
+    return comp_end_year_list, comp_end_value

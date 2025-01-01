@@ -16,7 +16,7 @@ title = dbc.Container([
 bullet_list = dbc.Container(dbc.Col(
     html.Ul([
         html.Li(html.A("HSLuv website", \
-        href="https://www.hsluv.org/")),
+        href="https://www.hsluv.org/", target="_blank")),
     ])
 ))
 

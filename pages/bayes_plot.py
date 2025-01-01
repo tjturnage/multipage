@@ -31,7 +31,7 @@ def create_surface(prior):
     post = (prior * y) / ((prior * y) + z * (1 - prior))
     prior_str = f'Prior Prob: {prior:.2f}'
     trace = go.Surface(
-        x=y, y=z, z=post, colorscale='Viridis', opacity=0.35, 
+        x=y, y=z, z=post, colorscale='Viridis', opacity=0.35,
         contours=go.surface.Contours(
             x=go.surface.contours.X(highlight=False),
             y=go.surface.contours.Y(highlight=True, highlightcolor="#ff3333"),
@@ -71,11 +71,20 @@ def update_figure(prior):
     fig = go.Figure(data=[trace])
     fig.update_layout(
         title=f"Bayes' Theorem Calculation<br>Prior Probability = {prior:.2f}",
-        scene=dict(
-            xaxis_title='Prob Hypothesis True',
-            yaxis_title='Prob Hypothesis Null',
-            zaxis_title='Posterior Probability'
-        ),
+        # scene=dict(
+        #     xaxis_title='Prob Hypothesis True',
+        #     yaxis_title='Prob Hypothesis Null',
+        #     zaxis_title='Posterior Probability'
+        # ),
+        scene={'xaxis_title': 'Prob Hypothesis True',
+               'yaxis_title': 'Prob Hypothesis Null',
+               'zaxis_title': 'Posterior Probability'},
+        #margin=dict(l=0, r=0, b=0, t=40),
+        margin={'l':0, 'r':0, 'b':0, 't':40},
         height=800  # Adjust the height here
     )
+    #camera = dict(eye=dict(x=1.12, y=1.8, z=0.75))
+    camera = {'eye':{'x':1.12, 'y':1.8, 'z':0.75}}
+
+    fig.update_layout(scene_camera=camera)
     return fig

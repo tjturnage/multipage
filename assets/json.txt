@@ -1,0 +1,48 @@
+{
+ "time" : "2025-01-01T01:15:00Z",
+ "lat"  : 39.1083,
+ "lon"  : -77.5831,
+ "source" :
+  {
+   "type"          : "model",
+   "model"         : "RAP",
+   "row"           : 120,
+   "col"           : 251,
+   "run_time"      : "2025-01-011T01:15:00Z",
+   "forecast_hour" : 1
+  },
+ "levels" :
+  [
+   { "pressure" :  986.9, "height" :   100, "temperature" :  26.39, "feet": 200},
+   { "pressure" :  977.0, "height" :   305, "temperature" :  25.14, "feet": 1000}, 
+   { "pressure" :  942.0, "height" :   610, "temperature" :  24.80, "feet": 2000},
+   { "pressure" :  908.0, "height" :   914, "temperature" :  23.39, "feet": 3000},
+   { "pressure" :  875.0, "height" :  1219, "temperature" :  21.10, "feet": 4000}, 
+   { "pressure" :  843.0, "height" :  1524, "temperature" :  19.59, "feet": 5000},
+   { "pressure" :  812.0, "height" :  1829, "temperature" :  17.00, "feet": 6000},
+   { "pressure" :  782.0, "height" :  2134, "temperature" :  16.31, "feet": 7000},
+   { "pressure" :  753.0, "height" :  2438, "temperature" :  14.80, "feet": 8000},
+   { "pressure" :  724.0, "height" :  2743, "temperature" :  12.32, "feet": 9000},
+   { "pressure" :  697.0, "height" :  3048, "temperature" :  10.82, "feet": 10000},
+   { "pressure" :  670.0, "height" :  3353, "temperature" :  8.36, "feet": 11000},
+   { "pressure" :  644.0, "height" :  3658, "temperature" :  5.14, "feet": 12000},
+   { "pressure" :  595.0, "height" :  4267, "temperature" : -0.10, "feet": 14000},   
+   { "pressure" :  549.0, "height" :  4877, "temperature" : -5.00, "feet": 16000},  
+   { "pressure" :  506.0, "height" :  5486, "temperature" : -10.00, "feet": 18000}, 
+   { "pressure" :  466.0, "height" :  6096, "temperature" : -21.10, "feet": 20000},
+   { "pressure" :  428.0, "height" :  6706, "temperature" : -24.40, "feet": 22000},    
+   { "pressure" :  393.0, "height" :  7315, "temperature" : -28.14, "feet": 24000},
+   { "pressure" :  360.0, "height" :  7925, "temperature" : -32.00, "feet": 26000}, 
+   { "pressure" :  329.0, "height" :  8534, "temperature" : -42.14, "feet": 28000},
+  ],
+ "units" :
+  {
+   "pressure"    : [ "MB", "millibars", "hPa", "hectopascals" ],
+   "height"      : [ "M", "meters" ],
+   "temperature" : [ "C", "celsius" ],
+   "dewpoint"    : [ "C", "celsius" ],
+   "wind_from"   : [ "DEG", "degrees" ],
+   "wind_speed"  : [ "MPS", "meters per second" ],
+   "uvv"         : [ "UBS", "microbars per second" ]
+  }
+}
